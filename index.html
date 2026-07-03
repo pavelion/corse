@@ -1,0 +1,1943 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A family naturalist's field dossier for Corsica — from the granite needles of Bavella to the marine reserve off Porto-Vecchio. Endemic wildlife, an interactive map, venues and fieldwork tips. English / Čeština.">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="De la Crête à la Mer — A Naturalist's Corsica">
+<meta property="og:description" content="A family field dossier: Bavella to Porto-Vecchio, endemic species, an interactive map and fieldwork tips. EN / CS.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏔️%3C/text%3E%3C/svg%3E">
+<title>De la Crête à la Mer — A Naturalist's Corsica</title>
+
+<style>
+  :root{
+    /* ---- palette (dark is primary) ---- */
+    --bg:#0c1613;
+    --bg-2:#101d19;
+    --surface:#132420;
+    --surface-2:#183029;
+    --line:#24413a;
+    --ink:#e9efe9;
+    --ink-soft:#b6c5bd;
+    --ink-faint:#7e938a;
+
+    --amber:#e3a24c;      /* granite glow — mountain */
+    --amber-deep:#c9822f;
+    --sea:#31b0a6;        /* mediterranean — coast */
+    --sea-bright:#54cabf;
+    --coral:#dc6c50;      /* rarity / status flag */
+    --gold-ink:#f0c079;
+
+    --accent:var(--amber);
+    --accent-ink:var(--gold-ink);
+
+    --maxw:1160px;
+    --serif:"Hoefler Text","Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SFMono-Regular","SF Mono","JetBrains Mono",Menlo,Consolas,"Liberation Mono",monospace;
+
+    --r:14px;
+    --shadow:0 24px 60px -28px rgba(0,0,0,.75), 0 4px 14px -8px rgba(0,0,0,.6);
+  }
+
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#eaeee7;
+      --bg-2:#e2e8df;
+      --surface:#f6f8f3;
+      --surface-2:#eef2ea;
+      --line:#d0d9cd;
+      --ink:#1a2621;
+      --ink-soft:#41544b;
+      --ink-faint:#6d7f74;
+      --amber:#b9762a;
+      --amber-deep:#9c6021;
+      --sea:#1c8880;
+      --sea-bright:#12766e;
+      --coral:#bf5236;
+      --gold-ink:#9c6a1c;
+      --shadow:0 24px 50px -30px rgba(30,50,42,.4), 0 3px 10px -6px rgba(30,50,42,.25);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c1613;--bg-2:#101d19;--surface:#132420;--surface-2:#183029;--line:#24413a;
+    --ink:#e9efe9;--ink-soft:#b6c5bd;--ink-faint:#7e938a;
+    --amber:#e3a24c;--amber-deep:#c9822f;--sea:#31b0a6;--sea-bright:#54cabf;--coral:#dc6c50;--gold-ink:#f0c079;
+    --shadow:0 24px 60px -28px rgba(0,0,0,.75), 0 4px 14px -8px rgba(0,0,0,.6);
+  }
+  :root[data-theme="light"]{
+    --bg:#eaeee7;--bg-2:#e2e8df;--surface:#f6f8f3;--surface-2:#eef2ea;--line:#d0d9cd;
+    --ink:#1a2621;--ink-soft:#41544b;--ink-faint:#6d7f74;
+    --amber:#b9762a;--amber-deep:#9c6021;--sea:#1c8880;--sea-bright:#12766e;--coral:#bf5236;--gold-ink:#9c6a1c;
+    --shadow:0 24px 50px -30px rgba(30,50,42,.4), 0 3px 10px -6px rgba(30,50,42,.25);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,44px)}
+
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;text-wrap:balance;margin:0}
+  p{margin:0}
+
+  .mono{font-family:var(--mono)}
+  .eyebrow{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--accent-ink);font-weight:500;
+  }
+  .sci{font-style:italic;font-family:var(--serif)}
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom:1px solid color-mix(in srgb,var(--line) 60%, transparent);
+  }
+  .topbar .row{display:flex;align-items:center;gap:22px;height:56px;max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,44px)}
+  .brand{font-family:var(--serif);font-weight:600;font-size:1.06rem;letter-spacing:.01em;white-space:nowrap}
+  .brand b{color:var(--amber)}
+  .navlinks{display:flex;gap:20px;margin-left:auto;font-size:.82rem}
+  .navlinks a{
+    font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;font-size:.7rem;
+    color:var(--ink-faint);text-decoration:none;padding:4px 2px;transition:color .2s;white-space:nowrap;
+  }
+  .navlinks a:hover{color:var(--ink)}
+  .theme-btn{
+    margin-left:6px;background:transparent;border:1px solid var(--line);color:var(--ink-soft);
+    width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:15px;line-height:1;
+    display:grid;place-items:center;transition:border-color .2s,color .2s;flex:none;
+  }
+  .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+  @media(max-width:820px){.navlinks{display:none}}
+
+  /* ============ ALTITUDE RAIL ============ */
+  .rail{
+    position:fixed;left:26px;top:0;bottom:0;width:64px;z-index:40;
+    display:flex;flex-direction:column;justify-content:center;pointer-events:none;
+  }
+  .rail-inner{position:relative;height:min(70vh,560px)}
+  .rail-line{
+    position:absolute;left:14px;top:0;bottom:0;width:2px;border-radius:2px;
+    background:linear-gradient(to bottom,var(--amber) 0%,var(--amber) 18%,#8a9a63 46%,var(--sea) 80%,var(--sea-bright) 100%);
+    opacity:.42;
+  }
+  .rail-fill{position:absolute;left:14px;top:0;width:2px;border-radius:2px;
+    background:linear-gradient(to bottom,var(--amber),var(--sea-bright));height:0}
+  .rail-dot{
+    position:absolute;left:15px;top:0;width:0;height:0;transform:translate(-50%,-50%);
+  }
+  .rail-dot::before{content:"";position:absolute;left:0;top:0;transform:translate(-50%,-50%);
+    width:12px;height:12px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 24%,transparent),0 0 14px 2px var(--accent)}
+  .rail-tick{position:absolute;left:22px;transform:translateY(-50%);
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;color:var(--ink-faint);white-space:nowrap}
+  .rail-tick b{color:var(--ink-soft);font-weight:600}
+  @media(max-width:1340px){.rail{display:none}}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+  #ridge{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+  .hero-veil{position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,transparent 40%,color-mix(in srgb,var(--bg) 55%,transparent) 74%,var(--bg) 100%)}
+  .hero-top{position:absolute;top:0;left:0;right:0;padding:clamp(80px,13vh,140px) 0 0}
+  .hero-kicker{display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--gold-ink)}
+  .hero-kicker .dot{width:5px;height:5px;border-radius:50%;background:var(--amber);flex:none}
+  .hero-body{padding-bottom:clamp(48px,9vh,110px);position:relative}
+  .hero h1{
+    font-size:clamp(2.9rem,8.4vw,7rem);letter-spacing:-.015em;
+    color:#fff;text-shadow:0 2px 40px rgba(0,0,0,.5);
+  }
+  :root[data-theme="light"] .hero h1{color:#fff}
+  .hero h1 em{font-style:italic;color:var(--gold-ink);text-shadow:0 2px 30px rgba(0,0,0,.35)}
+  .hero-lede{max-width:46ch;margin-top:22px;font-size:clamp(1.05rem,1.6vw,1.28rem);color:#e9efe9;
+    text-shadow:0 1px 14px rgba(0,0,0,.6)}
+  :root[data-theme="light"] .hero-lede{color:#f2f5ee}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;
+    font-family:var(--mono);font-size:.76rem;letter-spacing:.04em;color:#cdd8cf}
+  .hero-meta span{display:inline-flex;gap:8px;align-items:center}
+  .hero-meta b{color:var(--gold-ink);font-weight:600}
+  :root[data-theme="light"] .hero-meta{color:#e6ece2}
+  .scrollcue{margin-top:34px;display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#bcc9be}
+  .scrollcue .bar{width:36px;height:1px;background:currentColor;position:relative;overflow:hidden}
+  .scrollcue .bar::after{content:"";position:absolute;inset:0;background:var(--amber);
+    animation:sweep 2.6s ease-in-out infinite}
+  @keyframes sweep{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+  @media (prefers-reduced-motion:reduce){.scrollcue .bar::after{animation:none}}
+
+  /* ============ SECTION SCAFFOLD ============ */
+  section{padding-block:clamp(64px,10vh,120px);position:relative}
+  .zone-mountain{--accent:var(--amber);--accent-ink:var(--gold-ink)}
+  .zone-mid{--accent:#8fae72;--accent-ink:#b6cf9c}
+  .zone-coast{--accent:var(--sea);--accent-ink:var(--sea-bright)}
+  .sec-head{max-width:62ch;margin-bottom:clamp(34px,5vw,56px)}
+  .sec-head h2{font-size:clamp(2rem,4.6vw,3.5rem);letter-spacing:-.01em;margin-top:14px}
+  .sec-head p{margin-top:18px;color:var(--ink-soft);max-width:60ch;font-size:1.06rem}
+  .divider{height:1px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5;margin-bottom:26px;max-width:120px}
+
+  /* ============ BASES DIPTYCH ============ */
+  .diptych{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.diptych{grid-template-columns:1fr}}
+  .base{
+    position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    background:var(--surface);padding:30px 28px 28px;box-shadow:var(--shadow);
+  }
+  .base::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--accent)}
+  .base .phase{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+  .base h3{font-size:1.7rem;margin:10px 0 4px}
+  .base .loc{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);letter-spacing:.02em}
+  .base p{margin-top:14px;color:var(--ink-soft);font-size:.98rem}
+  .base .feats{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+  .base .feats li{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;color:var(--ink-soft);
+    border:1px solid var(--line);border-radius:20px;padding:5px 11px;background:var(--surface-2)}
+
+  /* ============ SPECIES ============ */
+  .log-status{
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    margin-bottom:26px;padding:14px 20px;border:1px dashed var(--line);border-radius:var(--r);
+    background:color-mix(in srgb,var(--surface) 60%,transparent);
+  }
+  .log-status .count{font-family:var(--mono);font-size:1rem;color:var(--ink);font-weight:600}
+  .log-status .count b{color:var(--amber);font-size:1.3rem}
+  .log-status .hint{font-size:.86rem;color:var(--ink-faint)}
+  .log-status .meter{flex:1;min-width:120px;height:6px;border-radius:6px;background:var(--surface-2);overflow:hidden}
+  .log-status .meter i{display:block;height:100%;width:0;border-radius:6px;
+    background:linear-gradient(90deg,var(--amber),var(--sea));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+
+  .species-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .card{
+    position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:24px 22px 20px;box-shadow:var(--shadow);overflow:hidden;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--card-accent,var(--accent)) 55%,var(--line))}
+  .card .glyph{position:absolute;right:-14px;top:-18px;font-size:104px;line-height:1;opacity:.06;transform:rotate(-8deg);pointer-events:none}
+  .card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 8px;border-radius:5px;font-weight:600}
+  .tag.endemic{color:#0c1613;background:var(--card-accent,var(--accent))}
+  .tag.status{background:color-mix(in srgb,var(--coral) 20%,transparent);color:var(--coral);border:1px solid color-mix(in srgb,var(--coral) 40%,transparent)}
+  .tag.plain{background:var(--surface-2);color:var(--ink-faint);border:1px solid var(--line)}
+  .card h3{font-size:1.35rem;line-height:1.1}
+  .card .binom{font-family:var(--serif);font-style:italic;color:var(--accent-ink);font-size:.95rem;margin-top:3px}
+  .card .corsu{font-family:var(--mono);font-size:.68rem;color:var(--ink-faint);letter-spacing:.04em;margin-top:6px}
+  .card .desc{margin-top:14px;color:var(--ink-soft);font-size:.93rem;line-height:1.6}
+  .card .datarow{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:15px;
+    font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);letter-spacing:.02em}
+  .card .datarow b{color:var(--ink-soft);font-weight:600}
+  .curio{margin-top:15px;padding:12px 14px;border-left:2px solid var(--card-accent,var(--accent));
+    background:color-mix(in srgb,var(--surface-2) 70%,transparent);border-radius:0 8px 8px 0}
+  .curio .lab{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+  .curio p{margin-top:5px;font-size:.86rem;color:var(--ink-soft);line-height:1.55}
+  .logbtn{
+    margin-top:16px;width:100%;display:flex;align-items:center;justify-content:center;gap:9px;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:10px;border-radius:9px;cursor:pointer;font-weight:600;
+    background:transparent;border:1px solid var(--line);color:var(--ink-soft);
+    transition:.2s;
+  }
+  .logbtn:hover{border-color:var(--card-accent,var(--accent));color:var(--ink)}
+  .card.logged{border-color:var(--card-accent,var(--accent))}
+  .card.logged .logbtn{background:var(--card-accent,var(--accent));color:#0c1613;border-color:transparent}
+  .lbl-done{display:none}
+  .card.logged .lbl-idle{display:none}
+  .card.logged .lbl-done{display:inline}
+
+  /* ============ VENUES ============ */
+  .venue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+  .venue{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .3s,border-color .3s;
+  }
+  .venue:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+  .venue .top{padding:20px 22px 4px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+  .venue .kind{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+  .venue h3{font-size:1.28rem;margin-top:8px;line-height:1.12}
+  .venue .score{font-family:var(--serif);font-size:1.5rem;color:var(--accent);line-height:1;flex:none}
+  .venue .body{padding:6px 22px 18px}
+  .venue .body p{color:var(--ink-soft);font-size:.92rem;line-height:1.58}
+  .venue .stats{margin:0;padding:14px 22px;border-top:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px 16px;background:color-mix(in srgb,var(--surface-2) 55%,transparent)}
+  .venue .stats div{display:flex;flex-direction:column;gap:2px}
+  .venue .stats dt{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .venue .stats dd{margin:0;font-family:var(--mono);font-size:.82rem;color:var(--ink);font-weight:600}
+  .venue .stats dd.warn{color:var(--coral)}
+
+  /* ============ FIELD NOTEBOOK ============ */
+  .note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .note{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:var(--shadow)}
+  .note .num{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em}
+  .note h3{font-size:1.18rem;margin:8px 0 0}
+  .note p{margin-top:11px;color:var(--ink-soft);font-size:.92rem;line-height:1.6}
+  .note .try{margin-top:13px;font-family:var(--mono);font-size:.74rem;color:var(--accent-ink);line-height:1.5}
+  .note .try b{color:var(--ink);letter-spacing:.06em;text-transform:uppercase;font-size:.64rem;display:block;margin-bottom:3px}
+
+  /* ============ RHYTHM / ITINERARY ============ */
+  .rhythm{display:flex;flex-direction:column;gap:2px}
+  .day{
+    display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 24px;
+    border:1px solid var(--line);background:var(--surface);
+    transition:background .25s;position:relative;
+  }
+  .day:first-child{border-radius:var(--r) var(--r) 0 0}
+  .day:last-child{border-radius:0 0 var(--r) var(--r)}
+  .day+.day{border-top:none}
+  .day:hover{background:var(--surface-2)}
+  .day .when{display:flex;flex-direction:column;gap:4px}
+  .day .when .d{font-family:var(--serif);font-size:1.5rem;color:var(--accent);line-height:1}
+  .day .when .base-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+  .day .what h3{font-size:1.16rem}
+  .day .what p{margin-top:6px;color:var(--ink-soft);font-size:.92rem}
+  .day .what .alt{font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin-top:8px}
+  @media(max-width:620px){.day{grid-template-columns:1fr;gap:10px}}
+
+  /* ============ PRACTICAL / CLOSING ============ */
+  .close{background:linear-gradient(180deg,var(--bg),var(--bg-2));border-top:1px solid var(--line)}
+  .prac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}
+  .prac{border:1px solid var(--line);border-radius:12px;padding:18px 18px;background:var(--surface)}
+  .prac .ic{font-size:1.1rem}
+  .prac h4{font-family:var(--serif);font-size:1.05rem;margin:8px 0 6px;font-weight:600}
+  .prac p{font-size:.85rem;color:var(--ink-soft);line-height:1.55}
+  .closing-line{max-width:56ch;margin:0 auto;text-align:center;font-family:var(--serif);
+    font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.25;font-style:italic;color:var(--ink)}
+  .closing-line b{font-style:normal;color:var(--amber)}
+  .footer-meta{text-align:center;margin-top:40px;font-family:var(--mono);font-size:.72rem;
+    letter-spacing:.05em;color:var(--ink-faint);line-height:1.8}
+  .footer-meta a{color:var(--accent-ink);text-decoration:none}
+
+  /* ============ VENUE PLATE (illustration) ============ */
+  .plate{height:150px;overflow:hidden;border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .plate svg{width:100%;height:100%;display:block}
+
+  /* ============ INTERACTIVE MAP ============ */
+  .map-stage{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;align-items:stretch}
+  @media(max-width:860px){.map-stage{grid-template-columns:1fr}}
+  .map-frame{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+  .map-frame svg{display:block;width:100%;height:auto}
+  .map-sea{fill:color-mix(in srgb,var(--sea) 14%, var(--bg))}
+  .map-land{fill:var(--surface-2);stroke:color-mix(in srgb,var(--amber) 52%, var(--line));stroke-width:1.4}
+  .map-mtn{fill:color-mix(in srgb,var(--amber) 26%, var(--surface-2))}
+  .map-forest{fill:color-mix(in srgb,#3f7a55 48%, var(--surface-2))}
+  .map-islet{fill:var(--surface-2);stroke:var(--sea);stroke-width:1}
+  .map-town{fill:var(--ink-soft)}
+  .maptx{fill:var(--ink-faint)}
+  .maptx.big{font-family:var(--serif);font-style:italic;fill:color-mix(in srgb,var(--sea) 60%,var(--ink-faint))}
+  .route{fill:none;stroke:var(--ink-faint);stroke-width:1.6;stroke-dasharray:2 8;stroke-linecap:round;opacity:.65}
+  text.maptx{font-family:var(--mono)}
+
+  .pin{cursor:pointer}
+  .pin .hit{fill:transparent}
+  .pin .ring{fill:var(--surface);stroke-width:2.2;transition:r .2s ease}
+  .pin .core{transition:r .2s ease}
+  .pin.zone-mtn .ring{stroke:var(--amber)} .pin.zone-mtn .core{fill:var(--amber)}
+  .pin.zone-sea .ring{stroke:var(--sea)} .pin.zone-sea .core{fill:var(--sea)}
+  .pin.zone-mtn .star{fill:var(--amber)} .pin.zone-sea .star{fill:var(--sea)}
+  .pin.base .star{stroke:#0c1613;stroke-width:1.2}
+  :root[data-theme="light"] .pin.base .star{stroke:#fff}
+  .pin .plabel{font-family:var(--mono);font-size:12px;fill:var(--ink);opacity:0;pointer-events:none;
+    paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round;transition:opacity .2s}
+  .pin:hover .plabel,.pin:focus-visible .plabel,.pin.active .plabel{opacity:1}
+  .pin:hover .ring,.pin:focus-visible .ring,.pin.active .ring{r:10}
+  .pin:hover .core,.pin.active .core{r:4.4}
+  .pin .pulse{fill:none;stroke-width:2}
+  .pin.zone-mtn .pulse{stroke:var(--amber)} .pin.zone-sea .pulse{stroke:var(--sea)}
+  @keyframes pmap{0%{r:9;opacity:.55}100%{r:24;opacity:0}}
+  .pin.base .pulse{animation:pmap 2.8s ease-out infinite}
+  @media (prefers-reduced-motion:reduce){.pin.base .pulse{animation:none;opacity:0}}
+  .pin:focus{outline:none}
+  .pin:focus-visible .ring{outline:2px solid var(--accent)}
+
+  .map-panel{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);
+    padding:24px 24px;display:flex;flex-direction:column;gap:14px}
+  .map-panel .ph{font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
+  .map-panel .legend{display:flex;flex-direction:column;gap:11px;margin-top:2px}
+  .map-panel .legend span{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.02em;color:var(--ink-soft)}
+  .lg-dot{width:13px;height:13px;border-radius:50%;flex:none;background:var(--surface)}
+  .lg-dot.m{border:2px solid var(--amber)} .lg-dot.s{border:2px solid var(--sea)}
+  .lg-star{color:var(--amber);font-size:1rem;flex:none;width:13px;text-align:center}
+  .lg-line{width:16px;flex:none;border-top:2px dashed var(--ink-faint)}
+  .map-hint{font-size:.8rem;color:var(--ink-faint);line-height:1.5}
+  .mp-kind{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);font-weight:600}
+  .mp-name{font-family:var(--serif);font-size:1.55rem;line-height:1.1;margin-top:4px}
+  .mp-blurb{color:var(--ink-soft);font-size:.94rem;line-height:1.58;margin-top:10px}
+  .mp-stat{font-family:var(--mono);font-size:.76rem;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:13px;margin-top:14px}
+  .mp-jump{margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+    padding:11px 18px;border-radius:9px;border:1px solid var(--accent);color:var(--ink);background:transparent;transition:.2s}
+  .mp-jump:hover{background:var(--accent);color:#0c1613}
+
+  .flash{animation:flashcard 1.8s ease}
+  @keyframes flashcard{0%,100%{box-shadow:var(--shadow)}16%,54%{box-shadow:0 0 0 3px var(--accent), var(--shadow)}}
+  @media (prefers-reduced-motion:reduce){.flash{animation:none;outline:2px solid var(--accent);outline-offset:2px}}
+
+  /* ============ SMALL KINGDOM ============ */
+  .critter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:16px}
+  .critter{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 19px;box-shadow:var(--shadow);transition:transform .25s,border-color .25s}
+  .critter:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+  .critter .em{font-size:1.55rem;line-height:1}
+  .critter .ct{display:flex;gap:6px;flex-wrap:wrap;margin:11px 0 7px}
+  .critter h3{font-size:1.1rem;line-height:1.12}
+  .critter .cb{font-family:var(--serif);font-style:italic;font-size:.82rem;color:var(--accent-ink);margin-top:3px}
+  .critter p{margin-top:10px;color:var(--ink-soft);font-size:.87rem;line-height:1.55}
+  .critter .spot{margin-top:11px;padding-top:10px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.68rem;color:var(--ink-faint);line-height:1.55}
+  .critter .spot b{color:var(--ink-soft);letter-spacing:.04em}
+  .mini-tag{font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:5px;font-weight:600}
+  .mini-tag.end{background:var(--accent);color:#0c1613}
+  .mini-tag.warn{background:color-mix(in srgb,var(--coral) 18%,transparent);color:var(--coral);border:1px solid color-mix(in srgb,var(--coral) 38%,transparent)}
+  .mini-tag.plain{background:var(--surface-2);color:var(--ink-faint);border:1px solid var(--line)}
+  .critter .ill{width:54px;height:54px;color:var(--accent-ink)}
+  .critter .ill svg{width:100%;height:100%;display:block;opacity:.9}
+
+  /* ---- language toggle ---- */
+  .lang-btn{margin-left:2px;background:transparent;border:1px solid var(--line);color:var(--ink-soft);
+    height:34px;padding:0 12px;border-radius:9px;cursor:pointer;font-family:var(--mono);font-size:.72rem;
+    letter-spacing:.08em;font-weight:600;display:grid;place-items:center;transition:border-color .2s,color .2s;flex:none}
+  .lang-btn:hover{border-color:var(--accent);color:var(--accent)}
+  :lang(cs) .hide-cs{display:none}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+<!-- =================== TOP BAR =================== -->
+<div class="topbar">
+  <div class="row">
+    <span class="brand">De la Crête à la Mer · <b>Corsica</b></span>
+    <nav class="navlinks">
+      <a href="#bases" data-i18n="nav.bases">The Bases</a>
+      <a href="#map" data-i18n="nav.map">Map</a>
+      <a href="#species" data-i18n="nav.species">Field Guide</a>
+      <a href="#small" data-i18n="nav.small">Small Kingdom</a>
+      <a href="#mountain" data-i18n="nav.mountain">Bavella</a>
+      <a href="#coast" data-i18n="nav.coast">The Sea</a>
+      <a href="#notebook" data-i18n="nav.notebook">Fieldwork</a>
+    </nav>
+    <button class="lang-btn" id="langToggle" type="button" aria-label="Přepnout do češtiny">CS</button>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">◐</button>
+  </div>
+</div>
+
+<!-- =================== ALTITUDE RAIL =================== -->
+<div class="rail" aria-hidden="true">
+  <div class="rail-inner">
+    <div class="rail-line"></div>
+    <div class="rail-fill" id="railFill"></div>
+    <div class="rail-dot" id="railDot"></div>
+    <div class="rail-tick" style="top:2%"><b>1218 m</b> · Col de Bavella</div>
+    <div class="rail-tick" style="top:26%">900 m · pinède laricio</div>
+    <div class="rail-tick" style="top:52%">600 m · maquis · torrents</div>
+    <div class="rail-tick" style="top:78%">120 m · Porto-Vecchio</div>
+    <div class="rail-tick" style="top:98%"><b>0 m</b> · la Méditerranée</div>
+  </div>
+</div>
+
+<!-- =================== HERO =================== -->
+<header class="hero">
+  <canvas id="ridge"></canvas>
+  <div class="hero-veil"></div>
+
+  <div class="hero-top">
+    <div class="wrap">
+      <div class="hero-kicker eyebrow">
+        <span data-i18n="hero.kick1">A Family Field Dossier</span><span class="dot"></span>
+        <span data-i18n="hero.kick2">Corse-du-Sud · Été 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div class="wrap">
+      <h1 data-i18n="hero.h1">From the granite&nbsp;needles<br>to the <em>city of groupers</em></h1>
+      <p class="hero-lede" data-i18n="hero.lede">
+        Nine days on the Island of Beauty, read as one long descent — five days high in the
+        laricio pines of <strong>Bavella</strong>, then down to the turquoise reserve off
+        <strong>Porto-Vecchio</strong>. This is your naturalist's brief: what lives here, where to
+        find it, and how to turn a holiday into fieldwork.
+      </p>
+      <div class="hero-meta" data-i18n="hero.meta">
+        <span>◵ <b>2 bases</b> · mountain → coast</span>
+        <span>⌖ <b>42.79°N, 9.22°E</b></span>
+        <span>❧ <b>7</b> endemic species to log</span>
+        <span>△ 1218 m &rarr; 0 m</span>
+      </div>
+      <div class="scrollcue"><span class="bar"></span><span data-i18n="hero.scroll">Begin the descent</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- =================== BASES =================== -->
+<section id="bases" class="zone-mountain">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="bases.eye">Where you sleep, where you roam</span>
+      <h2 data-i18n="bases.h2">Two camps, two worlds</h2>
+      <p data-i18n="bases.p">The trip has a natural spine. First the high granite amphitheatre of Bavella, where the air
+        smells of resin and the rock turns copper at dusk. Then the sea, where the same island shows
+        its other face — posidonia meadows, white islets and fish you can meet face-to-mask.</p>
+    </div>
+
+    <div class="diptych">
+      <article class="base reveal zone-mountain">
+        <span class="phase" data-i18n="b1.phase">Days 1–5 · The Heights</span>
+        <h3>Bavella Vista Camp</h3>
+        <span class="loc mono">Alt. ≈ 1000 m · Col de Bavella · Alta Rocca</span>
+        <p data-i18n="b1.p">Your basecamp sits under the <em>Aiguilles de Bavella</em> — seven granite towers the
+          locals call the <em>Cinque Frati</em> and their sisters. Wake to peregrines circling the
+          spires; step from the tent straight onto the GR20 and the red-marked trails. Everything in
+          this dossier's mountain half is within a short drive.</p>
+        <ul class="feats" data-i18n="b1.feats">
+          <li>◈ Aiguilles &amp; GR20</li><li>◈ Laricio pine forest</li><li>◈ Canyons &amp; via ferrata</li><li>◈ Cool mountain nights</li>
+        </ul>
+      </article>
+
+      <article class="base reveal zone-coast">
+        <span class="phase" data-i18n="b2.phase">Then · The Shore</span>
+        <h3>Apartment · Porto-Vecchio</h3>
+        <span class="loc mono">Alt. ≈ 40 m · Golfe de Porto-Vecchio · littoral</span>
+        <p data-i18n="b2.p">Down from the passes to the "City of Salt." From here the great beaches of
+          <em>Palombaggia</em> and <em>Santa Giulia</em> are minutes away, and boats leave the harbour
+          for the <em>Réserve Naturelle des Bouches de Bonifacio</em> — one of the Mediterranean's
+          richest marine sanctuaries.</p>
+        <ul class="feats" data-i18n="b2.feats">
+          <li>◈ Lavezzi archipelago</li><li>◈ Snorkelling &amp; groupers</li><li>◈ Posidonia meadows</li><li>◈ Warm shallow bays</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== INTERACTIVE MAP =================== -->
+<section id="map" class="zone-mid">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="map.eye">Orient yourself · Corse-du-Sud</span>
+      <h2 data-i18n="map.h2">The whole trip on one map</h2>
+      <p data-i18n="map.p">A schematic of the island's southern tip — not to scale, but true to the shape of your days.
+        Tap any marker to see what it is and jump to its details. Follow the dotted line to trace the
+        descent from the Bavella needles down to the sea.</p>
+    </div>
+
+    <div class="map-stage reveal">
+      <div class="map-frame">
+        <svg viewBox="0 0 700 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic map of southern Corsica with basecamps and activity markers" id="corseMap">
+          <rect class="map-sea" x="0" y="0" width="700" height="640"/>
+          <path class="map-land" d="M40,25 L470,30 C545,32 560,62 558,92 C566,150 580,215 578,278 C576,300 548,300 545,322 C543,338 560,342 572,352 C620,388 648,418 622,472 C602,512 545,542 470,560 C430,570 398,568 358,562 C250,547 150,522 80,472 C45,442 30,402 30,342 C28,250 30,140 34,80 C35,50 36,32 40,25 Z"/>
+
+          <g class="map-mtn">
+            <polygon points="300,212 340,120 362,178"/>
+            <polygon points="344,202 400,94 442,186"/>
+            <polygon points="420,206 470,120 502,202"/>
+            <polygon points="378,140 392,104 406,140"/>
+            <polygon points="452,150 462,116 472,150"/>
+          </g>
+
+          <g class="map-forest">
+            <polygon points="428,332 438,308 448,332"/>
+            <polygon points="450,338 460,312 470,338"/>
+            <polygon points="472,332 482,310 492,332"/>
+            <polygon points="442,348 452,326 462,348"/>
+            <polygon points="464,350 474,328 484,350"/>
+          </g>
+
+          <g><circle class="map-islet" cx="515" cy="590" r="7"/><circle class="map-islet" cx="533" cy="602" r="5"/><circle class="map-islet" cx="500" cy="604" r="4"/></g>
+
+          <path class="route" d="M398,166 Q470,250 560,345 Q560,470 522,590"/>
+
+          <g class="map-town"><rect x="551" y="76" width="6" height="6"/><rect x="425" y="548" width="6" height="6"/><rect x="416" y="201" width="6" height="6"/></g>
+          <text class="maptx" x="561" y="73" font-size="11">Solenzara</text>
+          <text class="maptx" x="404" y="545" font-size="11" text-anchor="end">Bonifacio</text>
+          <text class="maptx" x="426" y="197" font-size="11">Zonza</text>
+          <text class="maptx" x="210" y="128" font-size="12" letter-spacing="1">AIGUILLES DE BAVELLA</text>
+          <text class="maptx" x="432" y="378" font-size="10" text-anchor="middle" letter-spacing="1">FORÊT DE L'OSPEDALE</text>
+          <text class="maptx big" x="628" y="250" font-size="18" transform="rotate(90 628 250)">Mer Méditerranée</text>
+          <text class="maptx" x="300" y="606" font-size="10" text-anchor="middle" letter-spacing="1.5">BOUCHES DE BONIFACIO</text>
+
+          <g transform="translate(58,66)">
+            <circle r="16" style="fill:none;stroke:var(--line);stroke-width:1"/>
+            <polygon points="0,-13 4,3 0,-1 -4,3" style="fill:var(--amber)"/>
+            <text x="0" y="-18" text-anchor="middle" font-size="9" class="maptx">N</text>
+          </g>
+          <text class="maptx" x="34" y="626" font-size="9" letter-spacing="1.5">SCHÉMA · PAS À L'ÉCHELLE</text>
+
+          <!-- BASECAMPS -->
+          <g class="pin base zone-mtn" tabindex="0" role="button" transform="translate(398,166)"
+             aria-label="Bavella Vista Camp, mountain basecamp"
+             data-name="Bavella Vista Camp" data-kind="★ Basecamp · Days 1–5" data-zone="mtn" data-target="bases"
+             data-stat="Alt. ≈ 1000 m · Col de Bavella"
+             data-blurb="Your mountain home for five days, pitched right under the granite needles. Everything in the Bavella half of this dossier is a short drive from here.">
+            <circle class="hit" r="18"/><circle class="pulse" r="9"/>
+            <path class="star" d="M0,-10 L2.9,-3.1 L9.5,-3.1 L4.3,1.2 L5.9,7.8 L0,4 L-5.9,7.8 L-4.3,1.2 L-9.5,-3.1 L-2.9,-3.1 Z"/>
+            <text class="plabel" x="0" y="-17" text-anchor="middle">Bavella Vista</text>
+          </g>
+          <g class="pin base zone-sea" tabindex="0" role="button" transform="translate(560,345)"
+             aria-label="Porto-Vecchio apartment, coastal basecamp"
+             data-name="Porto-Vecchio Apartment" data-kind="★ Basecamp · The coast" data-zone="sea" data-target="bases"
+             data-stat="Alt. ≈ 40 m · Golfe de Porto-Vecchio"
+             data-blurb="Your seaside home for the second half — minutes from the great beaches and the harbour boats into the marine reserve.">
+            <circle class="hit" r="18"/><circle class="pulse" r="9"/>
+            <path class="star" d="M0,-10 L2.9,-3.1 L9.5,-3.1 L4.3,1.2 L5.9,7.8 L0,4 L-5.9,7.8 L-4.3,1.2 L-9.5,-3.1 L-2.9,-3.1 Z"/>
+            <text class="plabel" x="0" y="-17" text-anchor="middle">Porto-Vecchio</text>
+          </g>
+
+          <!-- MOUNTAIN ACTIVITIES -->
+          <g class="pin zone-mtn" tabindex="0" role="button" transform="translate(478,104)"
+             aria-label="U Calanconi via ferrata at Chisa"
+             data-name="U Calanconi · Chisà" data-kind="Via ferrata · vertical" data-zone="mtn" data-target="v-ferrata"
+             data-stat="Min age 12 · reach ≥ 1.70 m · 3.5–4 h"
+             data-blurb="A cabled cliff-route with ladders and a monkey-bridge, clipped in the whole way — serious fun for a sporty teen with a head for heights.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Via ferrata</text>
+          </g>
+          <g class="pin zone-mtn" tabindex="0" role="button" transform="translate(428,150)"
+             aria-label="Trou de la Bombe viewpoint"
+             data-name="Trou de la Bombe" data-kind="Hike · viewpoint" data-zone="mtn" data-target="v-trou"
+             data-stat="From 1218 m · ~1 h each way"
+             data-blurb="An hour from the Col de Bavella to a giant wind-drilled hole clean through the rock — prime ground for spotting mouflon and golden eagles.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Trou de la Bombe</text>
+          </g>
+          <g class="pin zone-mtn" tabindex="0" role="button" transform="translate(446,192)"
+             aria-label="Purcaraccia and Pulischellu canyons"
+             data-name="Purcaraccia &amp; Pulischellu" data-kind="Canyoning · aquatic" data-zone="mtn" data-target="v-purcaraccia"
+             data-stat="Min age ~7–12 · guide required"
+             data-blurb="Granite waterslides and turquoise plunge pools stepping down the mountain — the Bavella canyoning classics, with the gentler Pulischellu next door.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Canyons</text>
+          </g>
+          <g class="pin zone-mtn" tabindex="0" role="button" transform="translate(360,214)"
+             aria-label="Quenza deer enclosure"
+             data-name="Quenza Deer Enclosure" data-kind="Wildlife · conservation" data-zone="mtn" data-target="v-quenza"
+             data-stat="Near Quenza · easy visit"
+             data-blurb="The very enclosure where the Corsican red deer was pulled back from extinction from 1985. A genuine conservation story, gently told.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Cerf · Quenza</text>
+          </g>
+          <g class="pin zone-mtn" tabindex="0" role="button" transform="translate(330,262)"
+             aria-label="Museum of the Alta Rocca at Levie"
+             data-name="Musée de l'Alta Rocca" data-kind="Museum · deep time" data-zone="mtn" data-target="v-museum"
+             data-stat="Levie · ≈ €4 · under 10 free"
+             data-blurb="In Levie: 10,000 years of Corsica — the extinct Prolagus skeleton and the Dame de Bonifacio, the island's oldest human. A perfect rainy-day brain-feast.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Musée · Levie</text>
+          </g>
+          <g class="pin zone-mtn" tabindex="0" role="button" transform="translate(466,302)"
+             aria-label="Piscia di Gallu waterfall"
+             data-name="Piscia di Gallu" data-kind="Hike · forest waterfall" data-zone="mtn" data-target="v-piscia"
+             data-stat="≈ 4.6 km · 2 h 15 · go early"
+             data-blurb="Through old laricio pines to a 60 m waterfall off a granite wall — nuthatch country. The final descent to the base is steep.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Piscia di Gallu</text>
+          </g>
+
+          <!-- SEA ACTIVITIES -->
+          <g class="pin zone-sea" tabindex="0" role="button" transform="translate(556,318)"
+             aria-label="Kayak and paddleboard in the Gulf of Porto-Vecchio"
+             data-name="Golfe de Porto-Vecchio" data-kind="Kayak / SUP · muscle-powered" data-zone="sea" data-target="v-kayak"
+             data-stat="Calm gulf · morning best"
+             data-blurb="Paddle the sheltered gulf by kayak or stand-up board at first light and slip into coves the tour boats miss.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Kayak · golfe</text>
+          </g>
+          <g class="pin zone-sea" tabindex="0" role="button" transform="translate(612,412)"
+             aria-label="Palombaggia and Santa Giulia beaches"
+             data-name="Palombaggia &amp; Santa Giulia" data-kind="Beach + ecology" data-zone="sea" data-target="v-palombaggia"
+             data-stat="10–20 min from base · warm shallows"
+             data-blurb="Postcard beaches with dark Posidonia seagrass meadows offshore — the Mediterranean's oxygen factory. Read them like a scientist.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Palombaggia</text>
+          </g>
+          <g class="pin zone-sea" tabindex="0" role="button" transform="translate(605,468)"
+             aria-label="Rocky coves for shore snorkelling"
+             data-name="Rocky coves &amp; sea life" data-kind="Snorkel · shore-based" data-zone="sea" data-target="v-coves"
+             data-stat="Look, don't touch · rock edges"
+             data-blurb="No boat needed: mask-and-fins along the rocks reveals wrasse, urchins, starfish and maybe an octopus. A cheap underwater camera makes a field photographer.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Criques</text>
+          </g>
+          <g class="pin zone-sea" tabindex="0" role="button" transform="translate(522,590)"
+             aria-label="Lavezzi islands and Merouville snorkelling"
+             data-name="Îles Lavezzi &amp; Mérouville" data-kind="Boat + snorkel · flagship day" data-zone="sea" data-target="v-lavezzi"
+             data-stat="Depart ~09:00 · from ≈ €40 pp"
+             data-blurb="The big day: sail into the Bonifacio marine reserve and snorkel Grouper City among white granite islets. Plan it around a clear forecast.">
+            <circle class="hit" r="16"/><circle class="ring" r="6.5"/><circle class="core" r="3"/>
+            <text class="plabel" x="0" y="-13" text-anchor="middle">Lavezzi</text>
+          </g>
+        </svg>
+      </div>
+
+      <aside class="map-panel" id="mapPanel">
+        <div id="mapDefault">
+          <p class="ph" data-i18n="map.ph">Tap a marker to explore</p>
+          <div class="legend" data-i18n="map.legend">
+            <span><span class="lg-star">★</span> Your two basecamps</span>
+            <span><span class="lg-dot m"></span> Mountain activity · Bavella</span>
+            <span><span class="lg-dot s"></span> Sea activity · the coast</span>
+            <span><span class="lg-line"></span> The descent · summit → sea</span>
+          </div>
+          <p class="map-hint" data-i18n="map.hint">Markers are placed by feel, not GPS — use them to picture how the mountain
+            half and the coast half of your trip fit together.</p>
+        </div>
+        <div id="mapDetail" hidden>
+          <span class="mp-kind" id="mpKind"></span>
+          <h3 class="mp-name" id="mpName"></h3>
+          <p class="mp-blurb" id="mpBlurb"></p>
+          <p class="mp-stat" id="mpStat"></p>
+          <button class="mp-jump" id="mpJump" type="button" data-i18n="map.jump">See full details ↓</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SPECIES FIELD GUIDE =================== -->
+<section id="species" class="zone-mid">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="sp.eye">The Field Guide · Faune &amp; Flore Endémique</span>
+      <h2 data-i18n="sp.h2">Seven islanders found nowhere else on Earth</h2>
+      <p data-i18n="sp.p">Islands are evolution's laboratories. Cut off for millions of years, Corsica's animals and
+        plants drifted down their own path — some shrank, some vanished, a few survive only here.
+        Tick each one as you find it. Real naturalists keep a log; so should you.</p>
+    </div>
+
+    <div class="log-status reveal">
+      <span class="count"><b id="logCount">0</b> <span data-i18n="sp.logged">/ 7 species logged</span></span>
+      <span class="meter"><i id="logMeter"></i></span>
+      <span class="hint" data-i18n="sp.hint">Tap “Log sighting” on any card when you spot it in the wild.</span>
+    </div>
+
+    <div class="species-grid">
+
+      <!-- 1 nuthatch -->
+      <article class="card reveal" data-log style="--card-accent:var(--amber)">
+        <span class="glyph">🐦</span>
+        <div class="tags" data-i18n="sp1.tags"><span class="tag endemic">Endemic</span><span class="tag status">IUCN · Vulnerable</span></div>
+        <h3 data-i18n="sp1.name">Corsican Nuthatch</h3>
+        <div class="binom">Sitta whiteheadi</div>
+        <div class="corsu" data-i18n="sp1.corsu">corsu: “a nuciasgiola” · ~1000–1500 m</div>
+        <p class="desc" data-i18n="sp1.desc">The <b>only bird found nowhere but Corsica</b> — and the only bird endemic to
+          all of metropolitan France. A tiny black-capped acrobat that runs headfirst down trunks,
+          living and dying by the seeds of one tree: the old laricio pine.</p>
+        <div class="datarow" data-i18n="sp1.data">
+          <span><b>Where:</b> Ospedale &amp; Bavella pine forest</span>
+          <span><b>Size:</b> 12 cm</span>
+        </div>
+        <div class="curio">
+          <span class="lab" data-i18n="sp.curio.lab">For the curious</span>
+          <p data-i18n="sp1.curiop">Its whole survival is tied to <b>mature</b> pines &gt;100 years old — young plantations
+            won't do. When a forest fire takes an ancient grove, it can take a century to replace.
+            A living lesson in why "old-growth" isn't just a word.</p>
+        </div>
+        <button class="logbtn" type="button"><span class="lbl-idle" data-i18n="sp.log.idle">Log sighting</span><span class="lbl-done" data-i18n="sp.log.done">✓ Logged</span></button>
+      </article>
+
+      <!-- 2 red deer -->
+      <article class="card reveal" data-log style="--card-accent:var(--amber)">
+        <span class="glyph">🦌</span>
+        <div class="tags" data-i18n="sp2.tags"><span class="tag endemic">Endemic subsp.</span><span class="tag status">Back from extinction</span></div>
+        <h3 data-i18n="sp2.name">Corsican Red Deer</h3>
+        <div class="binom">Cervus elaphus corsicanus</div>
+        <div class="corsu" data-i18n="sp2.corsu">corsu: “u cerbu” · small &amp; dark</div>
+        <p class="desc" data-i18n="sp2.desc">A dwarf red deer — smaller and darker than mainland cousins. It went
+          <b>completely extinct in Corsica in the 1960s</b>, then was rescued by ferrying survivors
+          from Sardinia. Every deer on the island today descends from that rescue.</p>
+        <div class="datarow" data-i18n="sp2.data">
+          <span><b>Where:</b> Quenza enclosure &amp; Alta Rocca</span>
+          <span><b>Since:</b> reintroduced 1985</span>
+        </div>
+        <div class="curio">
+          <span class="lab" data-i18n="sp.curio.lab">For the curious</span>
+          <p data-i18n="sp2.curiop">The comeback started with just <b>13 founder animals</b>. That's a real-world example of
+            a "genetic bottleneck" — ask why so few ancestors makes a conservationist nervous about
+            inbreeding, and how the Parc naturel manages it.</p>
+        </div>
+        <button class="logbtn" type="button"><span class="lbl-idle" data-i18n="sp.log.idle">Log sighting</span><span class="lbl-done" data-i18n="sp.log.done">✓ Logged</span></button>
+      </article>
+
+      <!-- 3 mouflon -->
+      <article class="card reveal" data-log style="--card-accent:var(--amber)">
+        <span class="glyph">🐏</span>
+        <div class="tags" data-i18n="sp3.tags"><span class="tag endemic">Corsican race</span><span class="tag status">~600 left</span></div>
+        <h3 data-i18n="sp3.name">Mouflon</h3>
+        <div class="binom">Ovis gmelini musimon</div>
+        <div class="corsu" data-i18n="sp3.corsu">corsu: “a muvra” · the island's emblem</div>
+        <p class="desc" data-i18n="sp3.desc">The wild sheep of the peaks — curled horns, sure feet on bare rock. Corsica's
+          proud silhouette against a twisted pine. Only about <b>600 remain on the whole island</b>,
+          a third of them right here in the Bavella massif.</p>
+        <div class="datarow" data-i18n="sp3.data">
+          <span><b>Where:</b> high rocky slopes, dawn/dusk</span>
+          <span><b>Groups:</b> 2–3 animals</span>
+        </div>
+        <div class="curio">
+          <span class="lab" data-i18n="sp.curio.lab">For the curious</span>
+          <p data-i18n="sp3.curiop">Mouflons descend from the first <b>domestic sheep brought by Neolithic farmers</b>
+            ~8000 years ago, then went wild. So are they "wild" or "feral"? A genuinely debated
+            question — perfect for a young biologist to argue both sides.</p>
+        </div>
+        <button class="logbtn" type="button"><span class="lbl-idle" data-i18n="sp.log.idle">Log sighting</span><span class="lbl-done" data-i18n="sp.log.done">✓ Logged</span></button>
+      </article>
+
+      <!-- 4 salamander -->
+      <article class="card reveal" data-log style="--card-accent:#8fae72">
+        <span class="glyph">🦎</span>
+        <div class="tags" data-i18n="sp4.tags"><span class="tag endemic">Endemic</span><span class="tag plain">Amphibian</span></div>
+        <h3 data-i18n="sp4.name">Corsican Brook Salamander</h3>
+        <div class="binom">Euproctus montanus</div>
+        <div class="corsu" data-i18n="sp4.corsu">corsu mountain newt · clear cold streams</div>
+        <p class="desc" data-i18n="sp4.desc">A slender 10–13 cm newt that hides under stones in ice-cold torrents above
+          600 m. Found <b>only on Corsica</b>. Lift a rock in a Bavella stream (gently, and put it
+          back!) and you might just meet one.</p>
+        <div class="datarow" data-i18n="sp4.data">
+          <span><b>Where:</b> rocky streams &amp; springs &gt;600 m</span>
+          <span><b>Length:</b> ≤ 13 cm</span>
+        </div>
+        <div class="curio">
+          <span class="lab" data-i18n="sp.curio.lab">For the curious</span>
+          <p data-i18n="sp4.curiop">It has almost <b>no lungs as an adult</b> and breathes largely through its skin — which
+            is why it needs cold, oxygen-rich water. Introduced trout eat the larvae; a clean stream
+            is its whole world.</p>
+        </div>
+        <button class="logbtn" type="button"><span class="lbl-idle" data-i18n="sp.log.idle">Log sighting</span><span class="lbl-done" data-i18n="sp.log.done">✓ Logged</span></button>
+      </article>
+
+      <!-- 5 laricio pine -->
+      <article class="card reveal" data-log style="--card-accent:#8fae72">
+        <span class="glyph">🌲</span>
+        <div class="tags" data-i18n="sp5.tags"><span class="tag endemic">Endemic tree</span><span class="tag plain">Flora</span></div>
+        <h3 data-i18n="sp5.name">Laricio Pine</h3>
+        <div class="binom">Pinus nigra subsp. laricio</div>
+        <div class="corsu" data-i18n="sp5.corsu">corsu: “u pinu laricciu” · the giant</div>
+        <p class="desc" data-i18n="sp5.desc">The cathedral pillars of Bavella and Ospedale — tall, straight and ancient.
+          Some living trees are <b>over 500 years old</b>. Napoleon's navy prized their masts;
+          the nuthatch and countless insects depend on them.</p>
+        <div class="datarow" data-i18n="sp5.data">
+          <span><b>Where:</b> everywhere above 800 m</span>
+          <span><b>Age:</b> up to 500+ yrs</span>
+        </div>
+        <div class="curio">
+          <span class="lab" data-i18n="sp.curio.lab">For the curious</span>
+          <p data-i18n="sp5.curiop">Count the whorls of branches up a young trunk — roughly one per year — or the rings on a
+            cut stump. You're reading a <b>living calendar</b>. A single old pine here may have been a
+            sapling before Columbus sailed.</p>
+        </div>
+        <button class="logbtn" type="button"><span class="lbl-idle" data-i18n="sp.log.idle">Log sighting</span><span class="lbl-done" data-i18n="sp.log.done">✓ Logged</span></button>
+      </article>
+
+      <!-- 6 grouper -->
+      <article class="card reveal" data-log style="--card-accent:var(--sea)">
+        <span class="glyph">🐟</span>
+        <div class="tags" data-i18n="sp6.tags"><span class="tag endemic" style="--card-accent:var(--sea)">Reserve star</span><span class="tag status">Protected · recovering</span></div>
+        <h3 data-i18n="sp6.name">Dusky Grouper</h3>
+        <div class="binom">Epinephelus marginatus</div>
+        <div class="corsu" data-i18n="sp6.corsu">le mérou brun · “Mérouville”, Lavezzi</div>
+        <p class="desc" data-i18n="sp6.desc">A curious, heavyset fish the size of a dog that will calmly watch you snorkel.
+          Nearly fished out of the Mediterranean, it has <b>bounced back inside the Bonifacio
+          reserve</b>, where big old individuals now hold court among the rocks.</p>
+        <div class="datarow" data-i18n="sp6.data">
+          <span><b>Where:</b> Lavezzi &amp; Cerbicale, on a boat trip</span>
+          <span><b>Size:</b> up to 1.2 m</span>
+        </div>
+        <div class="curio">
+          <span class="lab" data-i18n="sp.curio.lab">For the curious</span>
+          <p data-i18n="sp6.curiop">Almost every grouper is <b>born female and later turns male</b> — "sequential
+            hermaphroditism." That's why the biggest fish are the old males, and why protecting
+            them protects the whole breeding population.</p>
+        </div>
+        <button class="logbtn" type="button"><span class="lbl-idle" data-i18n="sp.log.idle">Log sighting</span><span class="lbl-done" data-i18n="sp.log.done">✓ Logged</span></button>
+      </article>
+
+      <!-- 7 prolagus -->
+      <article class="card reveal" data-log style="--card-accent:var(--coral)">
+        <span class="glyph">🦴</span>
+        <div class="tags" data-i18n="sp7.tags"><span class="tag status">Extinct</span><span class="tag plain">Museum only</span></div>
+        <h3 data-i18n="sp7.name">Prolagus, the “Rabbit-Rat”</h3>
+        <div class="binom">Prolagus sardus</div>
+        <div class="corsu" data-i18n="sp7.corsu">a lost islander · Musée de Levie</div>
+        <p class="desc" data-i18n="sp7.desc">Not a species you can spot alive — a small tail-less relative of rabbits that
+          hopped across Corsica and Sardinia for millions of years and <b>survived until historical
+          times</b>, then vanished. Meet its skeleton at the Alta Rocca museum in Levie.</p>
+        <div class="datarow" data-i18n="sp7.data">
+          <span><b>Where:</b> Musée de l'Alta Rocca, Levie</span>
+          <span><b>Fate:</b> extinct ~Roman era+</span>
+        </div>
+        <div class="curio">
+          <span class="lab" data-i18n="sp.curio.lab">For the curious</span>
+          <p data-i18n="sp7.curiop">It shares a case with the <b>Dame de Bonifacio</b> — Corsica's oldest human burial,
+            ~8500 BC. Extinction and human arrival, side by side. Ask: did people help finish off the
+            prolagus? Islands are fragile in exactly this way.</p>
+        </div>
+        <button class="logbtn" type="button"><span class="lbl-idle" data-i18n="sp.log.museum">Log at museum</span><span class="lbl-done" data-i18n="sp.log.done">✓ Logged</span></button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== SMALL KINGDOM =================== -->
+<section id="small" class="zone-mid">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="small.eye">The small kingdom · e piccule bestie</span>
+      <h2 data-i18n="small.h2">Don't just look up — look down, and after dark</h2>
+      <p data-i18n="small.p">The big endemics get the headlines, but the real density of life on Corsica is small:
+        butterflies you can only find here, geckos the size of a finger, tortoises in the scrub, and a
+        whole city in every rock pool. Here's what to hunt for once your eye is in.</p>
+    </div>
+
+    <div class="critter-grid">
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="swallowtail"></div>
+        <div class="ct" data-i18n="c1.tags"><span class="mini-tag end">Endemic</span><span class="mini-tag warn">Strictly protected</span></div>
+        <h3 data-i18n="c1.name">Corsican Swallowtail</h3>
+        <div class="cb">Papilio hospiton</div>
+        <p data-i18n="c1.p">One of Europe's most protected butterflies — found <b>only on Corsica and Sardinia</b>. Big
+          pale-yellow wings edged in black, with blue-and-red eyespots and short tails.</p>
+        <p class="spot" data-i18n="c1.spot"><b>SPOT IT ·</b> sunny maquis &amp; rocky slopes, May–July, near giant fennel and Corsican rue. Watch only — never catch it.</p>
+      </article>
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="cicada"></div>
+        <div class="ct" data-i18n="c2.tags"><span class="mini-tag plain">The summer sound</span></div>
+        <h3 data-i18n="c2.name">Cicada</h3>
+        <div class="cb">Cicada orni</div>
+        <p data-i18n="c2.p">That relentless midday buzz <em>is</em> Corsica in summer — males vibrating drum-like organs
+          to call females. They fall silent the moment it clouds over or cools.</p>
+        <p class="spot" data-i18n="c2.spot"><b>SPOT IT ·</b> follow the sound to a tree trunk; hunt for the empty amber husk the nymph split open and climbed out of.</p>
+      </article>
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="gecko"></div>
+        <div class="ct" data-i18n="c3.tags"><span class="mini-tag end">Smallest in Europe</span></div>
+        <h3 data-i18n="c3.name">Leaf-toed Gecko</h3>
+        <div class="cb">Euleptes europaea</div>
+        <p data-i18n="c3.p">Barely the length of your finger (6–7 cm) and mostly nocturnal. It stalks insects like a
+          tiny cat — creeping close, then pouncing. Loves granite.</p>
+        <p class="spot" data-i18n="c3.spot"><b>SPOT IT ·</b> after dark, shine a torch on old stone walls, boulders and crags. Move slow; it freezes in the beam.</p>
+      </article>
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="tortoise"></div>
+        <div class="ct" data-i18n="c4.tags"><span class="mini-tag warn">Protected</span></div>
+        <h3 data-i18n="c4.name">Hermann's Tortoise</h3>
+        <div class="cb">Testudo hermanni</div>
+        <p data-i18n="c4.p">The tortoise of the Corsican scrub, plodding through the maquis grazing on flowers. Once
+          common, now getting rare — protected by law across Europe.</p>
+        <p class="spot" data-i18n="c4.spot"><b>SPOT IT ·</b> warm mornings on tracks through the maquis. Photograph it, note the spot — never pick it up or take it home.</p>
+      </article>
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="fanmussel"></div>
+        <div class="ct" data-i18n="c5.tags"><span class="mini-tag warn">Critically endangered</span></div>
+        <h3 data-i18n="c5.name">Fan Mussel</h3>
+        <div class="cb">Pinna nobilis</div>
+        <p data-i18n="c5.p">The Mediterranean's giant shell — up to a metre tall, standing point-down in the seagrass.
+          A parasite has killed <b>nearly all of them since 2016</b>, so a living one is a real rarity.</p>
+        <p class="spot" data-i18n="c5.spot"><b>SPOT IT ·</b> in Posidonia meadows while snorkelling; you may find old empty shells. If you meet a live one, keep your distance.</p>
+      </article>
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="mantis"></div>
+        <div class="ct" data-i18n="c6.tags"><span class="mini-tag plain">Camouflage master</span></div>
+        <h3 data-i18n="c6.name">Mantis &amp; Stick Insects</h3>
+        <div class="cb">Mantis religiosa</div>
+        <p data-i18n="c6.p">Masters of disguise in the dry grass — a mantis holds itself as still as a twig, then strikes
+          in a blink. Stick insects take invisibility even further.</p>
+        <p class="spot" data-i18n="c6.spot"><b>SPOT IT ·</b> dry grass stems and shrubs in late summer. Look for the alien head that swivels to watch you.</p>
+      </article>
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="antlion"></div>
+        <div class="ct" data-i18n="c7.tags"><span class="mini-tag plain">Hidden ambush</span></div>
+        <h3 data-i18n="c7.name">Ant-lion</h3>
+        <div class="cb">Myrmeleon sp.</div>
+        <p data-i18n="c7.p">Those little conical pits in dry, sheltered sand are traps. A fierce, buried larva waits at
+          the bottom for an ant to slip down the crumbling slope.</p>
+        <p class="spot" data-i18n="c7.spot"><b>TRY IT ·</b> tip a single grain of sand down the funnel and watch the bottom twitch as the hunter reacts.</p>
+      </article>
+
+      <article class="critter reveal">
+        <div class="ill" data-critter="urchin"></div>
+        <div class="ct" data-i18n="c8.tags"><span class="mini-tag plain">Rock-pool city</span></div>
+        <h3 data-i18n="c8.name">Sea Urchins &amp; Co.</h3>
+        <div class="cb">Paracentrotus lividus</div>
+        <p data-i18n="c8.p">Purple urchins, hermit crabs, blennies and starfish share the sunlit shallows — an entire
+          city living under 30 cm of water, if you slow down enough to see it.</p>
+        <p class="spot" data-i18n="c8.spot"><b>SPOT IT ·</b> rocky shallows on a calm day. Mind the urchin spines — look, don't grab.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== MOUNTAIN VENUES =================== -->
+<section id="mountain" class="zone-mountain">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="mt.eye">From the Bavella basecamp · Days 1–5</span>
+      <h2 data-i18n="mt.h2">The granite playground</h2>
+      <p data-i18n="mt.p">For a 13-year-old who lives for sport, this is the good stuff: warm rock, cold water,
+        exposure with a rope on it. Ages and prices below are typical 2026 guidance — always confirm
+        with the guiding company, and note that Bavella's canyons may now be entered
+        <b>only with a professional guide</b>.</p>
+    </div>
+
+    <div class="venue-grid">
+
+      <article class="venue reveal" id="v-purcaraccia">
+        <div class="plate" data-scene="pools"></div>
+        <div class="top" data-i18n="v1.top"><div><span class="kind">Canyoning · aquatic</span><h3>Purcaraccia Canyon</h3></div><span class="score">◆◆◆</span></div>
+        <div class="body" data-i18n="v1.body"><p>The famous one: natural granite waterslides and turquoise plunge pools stepping down the mountainside. Slides, jumps and abseils in warm summer water — pure adrenaline with a helmet on.</p></div>
+        <dl class="stats" data-i18n="v1.stats">
+          <div><dt>Min age</dt><dd>~12 yrs</dd></div>
+          <div><dt>Must</dt><dd>swim confidently</dd></div>
+          <div><dt>Duration</dt><dd>≈ half day</dd></div>
+          <div><dt>Access</dt><dd class="warn">guide required</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-pulischellu">
+        <div class="plate" data-scene="canyon"></div>
+        <div class="top" data-i18n="v2.top"><div><span class="kind">Canyoning · gentle intro</span><h3>Pulischellu Canyon</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v2.body"><p>Bavella's friendly starter canyon — playful pools and small slides in a green gorge. If younger cousins or nervous first-timers join, this is the confidence-builder before Purcaraccia.</p></div>
+        <dl class="stats" data-i18n="v2.stats">
+          <div><dt>Min age</dt><dd>~7 yrs</dd></div>
+          <div><dt>Level</dt><dd>discovery</dd></div>
+          <div><dt>Duration</dt><dd>≈ 2–3 h</dd></div>
+          <div><dt>Access</dt><dd class="warn">guide required</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-ferrata">
+        <div class="plate" data-scene="cliff"></div>
+        <div class="top" data-i18n="v3.top"><div><span class="kind">Via ferrata · vertical</span><h3>U Calanconi · Chisà</h3></div><span class="score">◆◆◆</span></div>
+        <div class="body" data-i18n="v3.body"><p>A cabled cliff-route with ladders, a monkey-bridge and big air under your heels — clipped in the whole way. Serious fun for a sporty teen with a head for heights and long-enough arms.</p></div>
+        <dl class="stats" data-i18n="v3.stats">
+          <div><dt>Min age</dt><dd>12 yrs</dd></div>
+          <div><dt>Reach</dt><dd class="warn">≥ 1.70 m up</dd></div>
+          <div><dt>Duration</dt><dd>3.5–4 h</dd></div>
+          <div><dt>Season</dt><dd>Jun–Sep daily</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-piscia">
+        <div class="plate" data-scene="waterfall"></div>
+        <div class="top" data-i18n="v4.top"><div><span class="kind">Hike · forest waterfall</span><h3>Piscia di Gallu</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v4.body"><p>Through the Ospedale laricio forest to a ~60 m waterfall plunging off a granite wall, past the balancing “Sentinelle” boulder. Easy most of the way — the final roped descent to the base is steep and not for small children.</p></div>
+        <dl class="stats" data-i18n="v4.stats">
+          <div><dt>Distance</dt><dd>≈ 4.6 km</dd></div>
+          <div><dt>Time</dt><dd>≈ 2 h 15</dd></div>
+          <div><dt>Ascent</dt><dd>≈ 200 m</dd></div>
+          <div><dt>Tip</dt><dd>go early</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-trou">
+        <div class="plate" data-scene="arch"></div>
+        <div class="top" data-i18n="v5.top"><div><span class="kind">Hike · viewpoint</span><h3>Trou de la Bombe</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v5.body"><p>A red-marked hour from the Col de Bavella to a giant wind-drilled hole clean through the rock (<em>U Cumpuleddu</em>). Prime ground to scan the aiguilles for mouflon, golden eagle and bearded vulture.</p></div>
+        <dl class="stats" data-i18n="v5.stats">
+          <div><dt>From</dt><dd>Col 1218 m</dd></div>
+          <div><dt>Time</dt><dd>≈ 1 h each way</dd></div>
+          <div><dt>Watch for</dt><dd>raptors</dd></div>
+          <div><dt>Bring</dt><dd>binoculars</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-quenza">
+        <div class="plate" data-scene="meadow"></div>
+        <div class="top" data-i18n="v6.top"><div><span class="kind">Wildlife · conservation</span><h3>Quenza Deer Enclosure</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v6.body"><p>The very enclosure where the Corsican red deer was pulled back from extinction from 1985. A short, low-effort visit with a genuine conservation story behind it — pair it with the “footsteps of the deer” walk.</p></div>
+        <dl class="stats" data-i18n="v6.stats">
+          <div><dt>Near</dt><dd>Quenza village</dd></div>
+          <div><dt>Effort</dt><dd>easy</dd></div>
+          <div><dt>Theme</dt><dd>rewilding</dd></div>
+          <div><dt>Best</dt><dd>morning</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-museum">
+        <div class="plate" data-scene="relic"></div>
+        <div class="top" data-i18n="v7.top"><div><span class="kind">Museum · deep time</span><h3>Musée de l'Alta Rocca</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v7.body"><p>In Levie: 10,000 years of Corsica in one room — the extinct Prolagus skeleton and the Dame de Bonifacio, the island's oldest human. A cool, rainy-day brain-feast between adventures.</p></div>
+        <dl class="stats" data-i18n="v7.stats">
+          <div><dt>Open</dt><dd>Jun–Sep daily*</dd></div>
+          <div><dt>Entry</dt><dd>≈ €4</dd></div>
+          <div><dt>Under 10</dt><dd>free</dd></div>
+          <div><dt>*</dt><dd>not Sun/hols</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== COAST VENUES =================== -->
+<section id="coast" class="zone-coast">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="ct.eye">From the Porto-Vecchio apartment · The Sea</span>
+      <h2 data-i18n="ct.h2">Into the blue reserve</h2>
+      <p data-i18n="ct.p">Now the descent reaches sea level. The <em>Bouches de Bonifacio</em> is a strictly protected
+        marine reserve, which is exactly why the snorkelling is so good — take only photos, and the
+        fish will come to you.</p>
+    </div>
+
+    <div class="venue-grid">
+
+      <article class="venue reveal" id="v-lavezzi">
+        <div class="plate" data-scene="islands"></div>
+        <div class="top" data-i18n="v8.top"><div><span class="kind">Boat + snorkel · flagship day</span><h3>Îles Lavezzi &amp; Mérouville</h3></div><span class="score">◆◆◆</span></div>
+        <div class="body" data-i18n="v8.body"><p>The day to plan the trip around. Sail from Porto-Vecchio past the Bonifacio cliffs to a scatter of white granite islets, then swim over “Grouper City” — clear water, granite boulders and unbothered fish. Snorkel gear is usually provided.</p></div>
+        <dl class="stats" data-i18n="v8.stats">
+          <div><dt>Depart</dt><dd>≈ 09:00 harbour</dd></div>
+          <div><dt>On island</dt><dd>swim + walk</dd></div>
+          <div><dt>From</dt><dd>≈ €40 pp</dd></div>
+          <div><dt>Star</dt><dd>dusky grouper</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-palombaggia">
+        <div class="plate" data-scene="beach"></div>
+        <div class="top" data-i18n="v9.top"><div><span class="kind">Beach + ecology</span><h3>Palombaggia &amp; Santa Giulia</h3></div><span class="score">◆◆◆</span></div>
+        <div class="body" data-i18n="v9.body"><p>Postcard beaches minutes from the apartment — but read them like a scientist. The dark undersea shadows are <em>Posidonia</em> seagrass meadows, the Mediterranean's oxygen factory and fish nursery. The washed-up brown balls are its fibres.</p></div>
+        <dl class="stats" data-i18n="v9.stats">
+          <div><dt>From base</dt><dd>≈ 10–20 min</dd></div>
+          <div><dt>Water</dt><dd>warm, shallow</dd></div>
+          <div><dt>Look for</dt><dd>seagrass, fry</dd></div>
+          <div><dt>Best light</dt><dd>early / late</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-coves">
+        <div class="plate" data-scene="cove"></div>
+        <div class="top" data-i18n="v10.top"><div><span class="kind">Snorkel · shore-based</span><h3>Rocky coves &amp; sea life</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v10.body"><p>No boat needed: mask-and-fins along the rocky edges of any cove reveals rainbow wrasse, damselfish, sea urchins, starfish and maybe an octopus. A cheap underwater camera turns the sporty kid into a field photographer.</p></div>
+        <dl class="stats" data-i18n="v10.stats">
+          <div><dt>Gear</dt><dd>mask + fins</dd></div>
+          <div><dt>Best spots</dt><dd>rock edges</dd></div>
+          <div><dt>Rule</dt><dd class="warn">look, don't touch</dd></div>
+          <div><dt>Bonus</dt><dd>octopus!</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-kayak">
+        <div class="plate" data-scene="kayak"></div>
+        <div class="top" data-i18n="v11.top"><div><span class="kind">Kayak / SUP · muscle-powered</span><h3>Golfe de Porto-Vecchio</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v11.body"><p>For the athlete who can't sit still: paddle the sheltered gulf by sea-kayak or stand-up board. Quiet, self-propelled, and the best way to slip into coves the tour boats miss — glassy water at first light.</p></div>
+        <dl class="stats" data-i18n="v11.stats">
+          <div><dt>Effort</dt><dd>your legs/arms</dd></div>
+          <div><dt>Water</dt><dd>calm gulf</dd></div>
+          <div><dt>When</dt><dd>morning calm</dd></div>
+          <div><dt>Watch</dt><dd>wind pickup</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== FIELD NOTEBOOK =================== -->
+<section id="notebook" class="zone-mid">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="nb.eye">Turn the holiday into fieldwork</span>
+      <h2 data-i18n="nb.h2">The young naturalist's notebook</h2>
+      <p data-i18n="nb.p">A curious, science-minded mind gets ten times more from Corsica than a camera roll. Here are
+        real methods a field biologist uses — small enough to do on a trail or a beach, real enough to
+        write up for school.</p>
+    </div>
+
+    <div class="note-grid">
+      <article class="note reveal">
+        <span class="num">01</span>
+        <h3 data-i18n="n1.h3">Learn the mountain's soundtrack</h3>
+        <p data-i18n="n1.p">Most forest animals are heard before seen. Sit still for five silent minutes and just
+          listen — a discipline birdwatchers call a "sit spot."</p>
+        <p class="try" data-i18n="n1.try"><b>Try this</b>The Corsican nuthatch gives a nasal, repeated <em>“wee-wee-wee.”</em>
+          Learn it, then find the bird. Ears first, eyes second.</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">02</span>
+        <h3 data-i18n="n2.h3">Read a tree's age</h3>
+        <p data-i18n="n2.p">You don't need to cut a pine to date it. Count the annual whorls of branches up a young
+          trunk, or the rings on any fallen log or cut stump.</p>
+        <p class="try" data-i18n="n2.try"><b>Try this</b>Find the oldest laricio you can and estimate its birth year.
+          Was it alive during the French Revolution? Almost certainly.</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">03</span>
+        <h3 data-i18n="n3.h3">Sketch, don't just snap</h3>
+        <p data-i18n="n3.p">Darwin and every great naturalist drew what they saw. The act of sketching forces you to
+          <em>notice</em> — how many toes, where the stripe sits, how the leaf attaches.</p>
+        <p class="try" data-i18n="n3.try"><b>Try this</b>Keep one small notebook. Date, place, weather, sketch. That
+          format is exactly a real scientific field log.</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">04</span>
+        <h3 data-i18n="n4.h3">Investigate the beach's brown balls</h3>
+        <p data-i18n="n4.p">Those fibrous balls on Palombaggia (<em>égagropiles</em>) are shredded Posidonia seagrass,
+          rolled by the waves. Evidence of a whole underwater meadow offshore.</p>
+        <p class="try" data-i18n="n4.try"><b>Try this</b>Pull one apart. Those fibres are from a plant, not seaweed —
+          Posidonia is a true flowering plant that lives in the sea. Why is that remarkable?</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">05</span>
+        <h3 data-i18n="n5.h3">Think like an island</h3>
+        <p data-i18n="n5.p">Why does Corsica have its own deer, its own bird, its own newt? Because islands run
+          evolution as a closed experiment — this is "island biogeography."</p>
+        <p class="try" data-i18n="n5.try"><b>Try this</b>For each endemic you log, ask the same question: what did
+          isolation change — size, colour, diet? Build the pattern yourself.</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">06</span>
+        <h3 data-i18n="n6.h3">Leave no trace — the scientist's oath</h3>
+        <p data-i18n="n6.p">Every rock you lift in a stream, you replace. Every animal, you watch from a distance.
+          Nothing collected, nothing fed, nothing left behind.</p>
+        <p class="try" data-i18n="n6.try"><b>Try this</b>Photograph and log instead of collecting. Upload sightings to
+          <em>iNaturalist</em> — your holiday data becomes real citizen science.</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">07</span>
+        <h3 data-i18n="n7.h3">Go “mothing” after dark</h3>
+        <p data-i18n="n7.p">A warm, still night turns on a light show. Hang a pale sheet, shine a torch on it, and wait —
+          moths, beetles and lacewings appear out of the dark.</p>
+        <p class="try" data-i18n="n7.try"><b>Try this</b>Best on a muggy, moonless night. Photograph every visitor; some
+          Corsican moths are jaw-droppers, and no two nights are the same.</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">08</span>
+        <h3 data-i18n="n8.h3">Master the rock pool</h3>
+        <p data-i18n="n8.p">The shallows are a nursery you can study standing up. Move slowly, keep your shadow off the
+          water, and let it settle before you look.</p>
+        <p class="try" data-i18n="n8.try"><b>Try this</b>Scoop into a clear tub, watch for two minutes, then tip it gently
+          back. Catch, observe, release — the whole cycle, every time.</p>
+      </article>
+
+      <article class="note reveal">
+        <span class="num">09</span>
+        <h3 data-i18n="n9.h3">Read the cicada thermometer</h3>
+        <p data-i18n="n9.p">Cicadas only crank up their song when it's hot — roughly above 22 °C. The fuller the chorus,
+          the warmer the air. The insect is a living instrument.</p>
+        <p class="try" data-i18n="n9.try"><b>Try this</b>Track how the buzz swells through the morning as the sun climbs.
+          You are literally listening to the temperature rise.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== RHYTHM =================== -->
+<section id="rhythm" class="zone-mid">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <span class="eyebrow" data-i18n="rh.eye">A suggested shape, not a schedule</span>
+      <h2 data-i18n="rh.h2">The rhythm of nine days</h2>
+      <p data-i18n="rh.p">Weather rules the mountains and the sea, so hold this loosely. The logic: acclimatise, save
+        the big-ticket canyon and boat day for good conditions, and let the descent from granite to
+        water tell its own story.</p>
+    </div>
+
+    <div class="rhythm">
+      <div class="day reveal">
+        <div class="when"><span class="d">01</span><span class="base-tag" data-i18n="d1.tag">Bavella · 1218 m</span></div>
+        <div class="what"><h3 data-i18n="d1.h3">Arrive &amp; look up</h3><p data-i18n="d1.p">Settle at camp, walk to the Trou de la Bombe for the hour that teaches you the skyline. First mouflon-and-eagle scan of the trip.</p><p class="alt" data-i18n="d1.alt">△ high &amp; dry · easy legs</p></div>
+      </div>
+      <div class="day reveal">
+        <div class="when"><span class="d">02</span><span class="base-tag" data-i18n="d2.tag">Ospedale forest</span></div>
+        <div class="what"><h3 data-i18n="d2.h3">Piscia di Gallu &amp; the pines</h3><p data-i18n="d2.p">Early start to the waterfall through old laricio — cool shade, nuthatch territory. Afternoon: log species 1, 5.</p><p class="alt" data-i18n="d2.alt">△ forest hike · go early</p></div>
+      </div>
+      <div class="day reveal">
+        <div class="when"><span class="d">03</span><span class="base-tag" data-i18n="d3.tag">Bavella canyons</span></div>
+        <div class="what"><h3 data-i18n="d3.h3">The big adventure day</h3><p data-i18n="d3.p">Purcaraccia (or Pulischellu) with a guide — slides, pools, jumps. Save this for the warmest, clearest forecast.</p><p class="alt" data-i18n="d3.alt">△ aquatic · book ahead</p></div>
+      </div>
+      <div class="day reveal">
+        <div class="when"><span class="d">04</span><span class="base-tag" data-i18n="d4.tag">Chisà · Quenza · Levie</span></div>
+        <div class="what"><h3 data-i18n="d4.h3">Vertical &amp; deep time</h3><p data-i18n="d4.p">U Calanconi via ferrata for the thrill-seeker; or the deer enclosure and Levie museum for a gentler, story-rich day. Log species 2, 7.</p><p class="alt" data-i18n="d4.alt">△ mixed · flexible</p></div>
+      </div>
+      <div class="day reveal">
+        <div class="when"><span class="d">05</span><span class="base-tag" data-i18n="d5.tag">Descent day</span></div>
+        <div class="what"><h3 data-i18n="d5.h3">Last of the heights, down to the coast</h3><p data-i18n="d5.p">Morning stream-hunt for the brook salamander, then wind down the Bavella road toward Porto-Vecchio. Watch the altitude fall away.</p><p class="alt" data-i18n="d5.alt">△ 1218 m &rarr; 40 m</p></div>
+      </div>
+      <div class="day reveal">
+        <div class="when"><span class="d">6–7</span><span class="base-tag" data-i18n="d6.tag">Porto-Vecchio · 40 m</span></div>
+        <div class="what"><h3 data-i18n="d6.h3">Settle by the sea</h3><p data-i18n="d6.p">Beach science at Palombaggia, shore snorkelling in the coves, sunset paddle in the gulf. Ease into salt-water rhythm.</p><p class="alt" data-i18n="d6.alt">△ coastal · relaxed</p></div>
+      </div>
+      <div class="day reveal">
+        <div class="when"><span class="d">08</span><span class="base-tag" data-i18n="d7.tag">Réserve · 0 m</span></div>
+        <div class="what"><h3 data-i18n="d7.h3">Lavezzi &amp; the groupers</h3><p data-i18n="d7.p">The flagship boat day into the marine reserve. Snorkel Mérouville, meet species 6 face-to-mask. Clear forecast essential.</p><p class="alt" data-i18n="d7.alt">△ open sea · weather-led</p></div>
+      </div>
+      <div class="day reveal">
+        <div class="when"><span class="d">09</span><span class="base-tag" data-i18n="d8.tag">Departure</span></div>
+        <div class="what"><h3 data-i18n="d8.h3">Write it up</h3><p data-i18n="d8.p">Finish the field notebook, upload the best sightings to iNaturalist, count the endemics logged. Nine days, sea to summit, in one record.</p><p class="alt" data-i18n="d8.alt">△ full log · 7/7?</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CLOSING =================== -->
+<section class="close zone-coast">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:34px">
+      <div class="divider" style="margin-inline:auto"></div>
+      <span class="eyebrow" style="display:block;text-align:center" data-i18n="close.eye">Before you go · le carnet pratique</span>
+    </div>
+
+    <div class="prac-grid reveal">
+      <div class="prac" data-i18n="pr1"><div class="ic">🌅</div><h4>Chase the light</h4><p>Bavella's granite glows copper at dawn and dusk, and beaches are emptiest then. Early starts beat both heat and crowds.</p></div>
+      <div class="prac" data-i18n="pr2"><div class="ic">💧</div><h4>Carry water &amp; sun</h4><p>The rocky trails are shadeless and Mediterranean sun is fierce. Two litres each, a hat, and reef-safe sunscreen for snorkel days.</p></div>
+      <div class="prac" data-i18n="pr3"><div class="ic">🥾</div><h4>Grippy shoes</h4><p>Wet granite is slick. Proper trail shoes for hikes; old trainers or reef shoes you can swim in for canyons and coves.</p></div>
+      <div class="prac" data-i18n="pr4"><div class="ic">🛡️</div><h4>Guides &amp; ages</h4><p>Canyoning and via ferrata are booked with certified guides who set the real age and height rules on the day. Confirm ahead.</p></div>
+      <div class="prac" data-i18n="pr5"><div class="ic">🔭</div><h4>Pack the tools</h4><p>Binoculars for the peaks, a mask for the sea, a snorkel camera, and one small notebook. That's the whole naturalist's kit.</p></div>
+      <div class="prac" data-i18n="pr6"><div class="ic">🌿</div><h4>Respect the reserve</h4><p>Inside the Bouches de Bonifacio: no touching, feeding, or taking. It's protected precisely so you can meet a wild grouper.</p></div>
+    </div>
+
+    <div style="margin:clamp(56px,9vh,90px) 0 20px">
+      <p class="closing-line" data-i18n="close.line">Come down the mountain slowly. The island keeps its best secrets for the ones who <b>stop, look, and log.</b></p>
+    </div>
+
+    <div class="footer-meta" data-i18n="close.foot">
+      DE LA CRÊTE À LA MER · CORSE-DU-SUD · 1218 m &rarr; 0 m<br>
+      A family field dossier · verify ages, prices &amp; opening times with local operators before booking<br>
+      Log your sightings: <a href="#species">iNaturalist</a> · Bon voyage &amp; bona strada
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+  /* ---------- theme toggle ---------- */
+  var root = document.documentElement, btn = document.getElementById("themeToggle");
+  function current(){
+    var s = root.getAttribute("data-theme");
+    if(s) return s;
+    return (window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) ? "dark":"light";
+  }
+  btn.addEventListener("click", function(){
+    var next = current()==="dark" ? "light":"dark";
+    root.setAttribute("data-theme", next);
+    drawRidge();
+  });
+
+  /* ---------- reveal on scroll ---------- */
+  var io;
+  if("IntersectionObserver" in window && !reduce){
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+    },{threshold:.12, rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- sighting log ---------- */
+  var cards = Array.prototype.slice.call(document.querySelectorAll("[data-log]"));
+  var countEl = document.getElementById("logCount"), meterEl = document.getElementById("logMeter");
+  function refresh(){
+    var n = document.querySelectorAll("[data-log].logged").length;
+    countEl.textContent = n;
+    meterEl.style.width = (n/cards.length*100)+"%";
+  }
+  cards.forEach(function(card){
+    var b = card.querySelector(".logbtn");
+    b.addEventListener("click", function(){
+      card.classList.toggle("logged");
+      refresh();
+    });
+  });
+  refresh();
+
+  /* ---------- altitude rail ---------- */
+  var railFill = document.getElementById("railFill"), railDot = document.getElementById("railDot");
+  function onScroll(){
+    if(!railFill) return;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h>0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+    var inner = railDot.parentElement.querySelector(".rail-line");
+    var railH = inner ? inner.getBoundingClientRect().height : 400;
+    railFill.style.height = (p*railH)+"px";
+    railDot.style.top = (p*railH)+"px";
+    /* shift dot accent amber -> sea as we descend */
+    var amber=[227,162,76], sea=[49,176,166];
+    var c = amber.map(function(a,i){ return Math.round(a+(sea[i]-a)*p); });
+    railDot.style.setProperty("--accent","rgb("+c[0]+","+c[1]+","+c[2]+")");
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  /* ---------- hero ridgeline (canvas) ---------- */
+  var canvas = document.getElementById("ridge"), ctx = canvas.getContext("2d");
+  // deterministic pseudo-random so the ridge is stable
+  function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+
+  function themeColors(){
+    var dark = current()==="dark";
+    return dark ? {
+      skyTop:"#0a1512", skyMid:"#16211a", glow:"rgba(227,162,76,0.55)", glow2:"rgba(220,108,80,0.35)",
+      sun:"rgba(240,192,121,0.9)",
+      layers:["#20302a","#1a2822","#132019","#0e1814"], star:"rgba(233,239,233,0.85)"
+    } : {
+      skyTop:"#cfe0e6", skyMid:"#e7d9c2", glow:"rgba(220,150,70,0.5)", glow2:"rgba(200,110,80,0.3)",
+      sun:"rgba(255,224,170,0.95)",
+      layers:["#8aa08f","#6f8a7a","#556f60","#3d5548"], star:"rgba(255,255,255,0)"
+    };
+  }
+
+  function drawRidge(){
+    var w = canvas.clientWidth || window.innerWidth, h = canvas.clientHeight || window.innerHeight;
+    var dpr = Math.min(window.devicePixelRatio||1, 2);
+    canvas.width = w*dpr; canvas.height = h*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var C = themeColors();
+
+    // sky
+    var sky = ctx.createLinearGradient(0,0,0,h);
+    sky.addColorStop(0, C.skyTop); sky.addColorStop(0.55, C.skyMid); sky.addColorStop(1, C.skyMid);
+    ctx.fillStyle = sky; ctx.fillRect(0,0,w,h);
+
+    // sun glow low-right
+    var cx = w*0.72, cy = h*0.52;
+    var g = ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(w,h)*0.5);
+    g.addColorStop(0, C.glow); g.addColorStop(0.4, C.glow2); g.addColorStop(1,"rgba(0,0,0,0)");
+    ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+    // sun disc
+    ctx.beginPath(); ctx.arc(cx,cy, Math.max(w,h)*0.045, 0, Math.PI*2);
+    ctx.fillStyle = C.sun; ctx.globalAlpha=.9; ctx.fill(); ctx.globalAlpha=1;
+
+    // stars (dark only)
+    if(current()==="dark"){
+      var sr = mulberry(99);
+      ctx.fillStyle = C.star;
+      for(var i=0;i<70;i++){
+        var sx=sr()*w, sy=sr()*h*0.5, srad=sr()*1.1+0.2;
+        ctx.globalAlpha = 0.3+sr()*0.6;
+        ctx.beginPath(); ctx.arc(sx,sy,srad,0,Math.PI*2); ctx.fill();
+      }
+      ctx.globalAlpha=1;
+    }
+
+    // jagged ridge layers — the Aiguilles de Bavella
+    var seeds=[7,21,42,88];
+    var baseY=[0.60,0.68,0.78,0.9];
+    var amp =[0.34,0.30,0.24,0.16];
+    var jag =[0.9,0.7,0.5,0.35];
+    for(var L=0; L<C.layers.length; L++){
+      var rnd = mulberry(seeds[L]);
+      ctx.beginPath(); ctx.moveTo(0,h);
+      var x=0, steps= 26 + L*6;
+      ctx.lineTo(0, h*baseY[L]);
+      for(var s=0;s<=steps;s++){
+        x = (s/steps)*w;
+        var spike = Math.pow(rnd(), 1.5) * amp[L];
+        // occasional tall needle
+        if(rnd()>0.82 && L<2) spike += 0.14*rnd();
+        var y = h*baseY[L] - spike*h - (L<2? Math.sin(s*1.7)*jag[L]*14 : 0);
+        // sharp granite teeth
+        var mid = h*baseY[L] - spike*h*0.4;
+        ctx.lineTo(x - w/steps*0.5, mid);
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(w, h*baseY[L]); ctx.lineTo(w,h); ctx.closePath();
+      ctx.fillStyle = C.layers[L]; ctx.fill();
+      // rim light on nearest ridges from the sun side
+      if(current()==="dark" && L<2){
+        ctx.strokeStyle = "rgba(240,192,121,"+(0.10-L*0.03)+")";
+        ctx.lineWidth=1; ctx.stroke();
+      }
+    }
+  }
+  drawRidge();
+  var rt;
+  window.addEventListener("resize", function(){ clearTimeout(rt); rt=setTimeout(drawRidge,150); });
+})();
+</script>
+
+<script>
+/* ===== venue illustration plates + interactive map ===== */
+(function(){
+  "use strict";
+  function wrap(inner,label){
+    return '<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of '+label+'">'+inner+'</svg>';
+  }
+  var S = {
+    pools:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d79b"/><stop offset="1" stop-color="#e0a04d"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<path d="M0,58 L400,18 L400,200 L0,200 Z" fill="#8a7358"/>'
+      +'<path d="M0,96 L400,58 L400,200 L0,200 Z" fill="#6b5843"/>'
+      +'<ellipse cx="116" cy="152" rx="76" ry="21" fill="#2fa9a0"/>'
+      +'<ellipse cx="234" cy="120" rx="56" ry="15" fill="#3bbdb2"/>'
+      +'<ellipse cx="324" cy="94" rx="42" ry="12" fill="#59ccc0"/>'
+      +'<path d="M260,126 q-22,10 -44,16" stroke="#eaf7f4" stroke-width="6" fill="none" opacity="0.8"/>'
+      +'<path d="M350,100 q-16,8 -32,13" stroke="#eaf7f4" stroke-width="5" fill="none" opacity="0.8"/>';},
+    canyon:function(i){return '<rect width="400" height="200" fill="#cfe6cf"/>'
+      +'<path d="M0,0 L152,0 L120,200 L0,200 Z" fill="#3a5a44"/>'
+      +'<path d="M400,0 L250,0 L286,200 L400,200 Z" fill="#2f4a38"/>'
+      +'<path d="M120,200 L160,88 L242,88 L286,200 Z" fill="#5b7a5f" opacity="0.45"/>'
+      +'<ellipse cx="201" cy="186" rx="62" ry="14" fill="#37b0a6"/>'
+      +'<path d="M176,58 L186,120 M216,54 L206,120" stroke="#eaf7ee" stroke-width="4" opacity="0.45"/>';},
+    cliff:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbe7ea"/><stop offset="1" stop-color="#f0dcb0"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<polygon points="0,200 0,40 120,10 202,60 244,200" fill="#7a6a58"/>'
+      +'<polygon points="202,200 244,60 322,20 400,50 400,200" fill="#5f5142"/>'
+      +'<polygon points="120,10 202,60 160,120 90,90" fill="#8b7a66" opacity="0.55"/>'
+      +'<polyline points="150,192 176,140 166,100 202,70 236,90" fill="none" stroke="#e4ddce" stroke-width="2.5"/>'
+      +'<circle cx="176" cy="140" r="5.5" fill="#dc6c50"/>';},
+    waterfall:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7e6df"/><stop offset="1" stop-color="#eef0e0"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<path d="M210,0 L400,0 L400,200 L232,200 Z" fill="#6b5c4b"/>'
+      +'<path d="M258,0 L400,10 L400,200 L278,200 Z" fill="#4f4335"/>'
+      +'<path d="M250,4 Q244,90 258,200 L288,200 Q276,90 282,4 Z" fill="#f2f7f2" opacity="0.92"/>'
+      +'<ellipse cx="270" cy="188" rx="56" ry="12" fill="#bfe0dc" opacity="0.8"/>'
+      +'<g fill="#2c4436"><polygon points="60,200 40,120 80,120"/><polygon points="60,138 44,94 76,94"/><polygon points="60,108 48,76 72,76"/>'
+      +'<polygon points="112,200 96,140 128,140"/><polygon points="112,150 100,110 124,110"/></g>';},
+    arch:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d79b"/><stop offset="1" stop-color="#dc9a52"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<polygon points="0,122 42,60 72,112 112,50 152,122" fill="#b98a52" opacity="0.45"/>'
+      +'<path d="M182,200 L150,58 L252,30 L332,80 L342,200 Z" fill="#6d5a44"/>'
+      +'<ellipse cx="250" cy="112" rx="34" ry="42" fill="url(#a'+i+')"/>'
+      +'<ellipse cx="250" cy="112" rx="34" ry="42" fill="#c98a3a" opacity="0.18"/>';},
+    meadow:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7d49a"/><stop offset="1" stop-color="#f2e6c2"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<path d="M0,118 Q200,88 400,113 L400,200 L0,200 Z" fill="#8aa36a"/>'
+      +'<path d="M0,150 Q200,130 400,146 L400,200 L0,200 Z" fill="#6d8a52"/>'
+      +'<g fill="#3a2c1c" transform="translate(248,116)">'
+      +'<ellipse cx="0" cy="12" rx="27" ry="10"/>'
+      +'<rect x="-20" y="16" width="4" height="20"/><rect x="14" y="16" width="4" height="20"/><rect x="-8" y="17" width="4" height="19"/><rect x="6" y="17" width="4" height="19"/>'
+      +'<path d="M22,10 Q34,6 33,-12 L36,-12 Q37,8 26,16 Z"/>'
+      +'<path d="M34,-12 L30,-24 M34,-12 L40,-22" stroke="#3a2c1c" stroke-width="2.4" fill="none"/></g>';},
+    relic:function(i){return '<rect width="400" height="200" fill="#17201c"/>'
+      +'<rect x="10" y="10" width="380" height="180" fill="none" stroke="#3a4d44" stroke-width="1"/>'
+      +'<rect x="16" y="16" width="368" height="168" fill="none" stroke="#2a3a33" stroke-width="1"/>'
+      +'<g stroke="#c9b48a" stroke-width="2" fill="none" transform="translate(196,96)">'
+      +'<path d="M-40,0 Q-40,-30 0,-30 Q40,-30 40,-6 Q40,10 20,16 L-20,20 Q-42,18 -40,0 Z"/>'
+      +'<circle cx="17" cy="-8" r="6.5" fill="#c9b48a"/>'
+      +'<path d="M40,-6 q14,0 22,8"/>'
+      +'<path d="M-20,20 l-4,14 M-6,21 l-3,15 M8,20 l-2,15"/></g>'
+      +'<text x="200" y="176" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#7e938a" letter-spacing="2">PROLAGUS · MUSÉE DE LEVIE</text>';},
+    islands:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdeaf0"/><stop offset="1" stop-color="#8fd6d0"/></linearGradient>'
+      +'<linearGradient id="b'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4dc3ba"/><stop offset="1" stop-color="#0f6d74"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<rect y="95" width="400" height="105" fill="url(#b'+i+')"/>'
+      +'<ellipse cx="90" cy="95" rx="72" ry="18" fill="#d8c7a8"/>'
+      +'<ellipse cx="302" cy="92" rx="90" ry="16" fill="#cdbb9c"/>'
+      +'<ellipse cx="200" cy="98" rx="40" ry="10" fill="#e0d2b4"/>'
+      +'<g fill="#0b4f56" opacity="0.85"><ellipse cx="142" cy="150" rx="22" ry="11"/><polygon points="120,150 106,141 106,159"/></g>'
+      +'<g fill="#0b4f56" opacity="0.5"><ellipse cx="262" cy="172" rx="12" ry="6"/><polygon points="250,172 242,167 242,177"/></g>'
+      +'<line x1="0" y1="120" x2="400" y2="120" stroke="#eafcfa" stroke-width="1" opacity="0.3"/>';},
+    beach:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe0ea"/><stop offset="1" stop-color="#e9dcc0"/></linearGradient>'
+      +'<linearGradient id="b'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cc8bf"/><stop offset="1" stop-color="#2699a0"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<rect y="70" width="400" height="82" fill="url(#b'+i+')"/>'
+      +'<ellipse cx="120" cy="118" rx="62" ry="16" fill="#1c6f74" opacity="0.5"/>'
+      +'<ellipse cx="300" cy="130" rx="72" ry="18" fill="#1c6f74" opacity="0.42"/>'
+      +'<path d="M0,140 Q200,124 400,145 L400,200 L0,200 Z" fill="#eaddbe"/>'
+      +'<path d="M0,162 Q200,152 400,164 L400,200 L0,200 Z" fill="#dfcea8"/>'
+      +'<g transform="translate(56,120)"><rect x="-3" y="0" width="6" height="42" fill="#5a4632"/><ellipse cx="0" cy="-6" rx="34" ry="17" fill="#2f4a38"/></g>'
+      +'<ellipse cx="360" cy="150" rx="30" ry="16" fill="#b0623f"/>';},
+    cove:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4fc3ba"/><stop offset="1" stop-color="#0c5a63"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<g stroke="#dffbf7" stroke-width="12" opacity="0.1"><line x1="90" y1="-10" x2="150" y2="210"/><line x1="210" y1="-10" x2="260" y2="210"/></g>'
+      +'<path d="M0,200 L0,150 Q60,120 120,155 Q200,120 280,160 Q340,132 400,160 L400,200 Z" fill="#0a3f47"/>'
+      +'<g fill="#f0c079"><ellipse cx="152" cy="88" rx="16" ry="8"/><polygon points="136,88 124,81 124,95"/></g>'
+      +'<g fill="#eaf7f4" opacity="0.85"><ellipse cx="252" cy="118" rx="10" ry="5"/><polygon points="242,118 234,114 234,122"/></g>'
+      +'<g transform="translate(92,158)" stroke="#1a1230" stroke-width="2.2"><circle r="8" fill="#2a1e40"/><line x1="0" y1="-8" x2="0" y2="-17"/><line x1="0" y1="8" x2="0" y2="17"/><line x1="-8" y1="0" x2="-17" y2="0"/><line x1="8" y1="0" x2="17" y2="0"/><line x1="-6" y1="-6" x2="-13" y2="-13"/><line x1="6" y1="-6" x2="13" y2="-13"/></g>';},
+    kayak:function(i){return '<defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2e0b8"/><stop offset="1" stop-color="#e7cf9a"/></linearGradient>'
+      +'<linearGradient id="b'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#59c3bd"/><stop offset="1" stop-color="#2a8f92"/></linearGradient></defs>'
+      +'<rect width="400" height="200" fill="url(#a'+i+')"/>'
+      +'<path d="M0,94 Q120,54 240,90 Q320,110 400,84 L400,120 L0,120 Z" fill="#7c8a63"/>'
+      +'<path d="M0,104 Q140,80 260,100 Q340,112 400,100 L400,132 L0,132 Z" fill="#5f7050"/>'
+      +'<rect y="110" width="400" height="90" fill="url(#b'+i+')"/>'
+      +'<g stroke="#d8f2ee" stroke-width="2" opacity="0.4"><line x1="60" y1="142" x2="112" y2="142"/><line x1="250" y1="162" x2="322" y2="162"/></g>'
+      +'<g transform="translate(180,152)"><path d="M-46,0 Q0,15 46,0 Q0,8 -46,0 Z" fill="#dc6c50"/><line x1="0" y1="-2" x2="0" y2="-26" stroke="#3a2f22" stroke-width="3"/><circle cx="0" cy="-28" r="6" fill="#3a2f22"/><line x1="-17" y1="-15" x2="17" y2="-8" stroke="#3a2f22" stroke-width="3"/></g>';}
+  };
+  var i=0;
+  Array.prototype.forEach.call(document.querySelectorAll(".plate[data-scene]"), function(el){
+    var t = el.getAttribute("data-scene");
+    el.innerHTML = wrap(S[t] ? S[t](i++) : "", t);
+  });
+
+  /* ---- small-kingdom line illustrations ---- */
+  function wI(inner){
+    return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+inner+'</svg>';
+  }
+  var ILL = {
+    swallowtail:'<path d="M24,13 V33"/><path d="M24,13 C21,9 19,8 17,8"/><path d="M24,13 C27,9 29,8 31,8"/>'
+      +'<path d="M23,17 C15,10 6,12 6,20 C6,25 15,25 22,22"/><path d="M25,17 C33,10 42,12 42,20 C42,25 33,25 26,22"/>'
+      +'<path d="M23,24 C16,26 10,29 12,34 C14,38 19,36 22,30"/><path d="M12,34 L9,39"/>'
+      +'<path d="M25,24 C32,26 38,29 36,34 C34,38 29,36 26,30"/><path d="M36,34 L39,39"/>'
+      +'<circle cx="15" cy="31" r="1.3" fill="currentColor" stroke="none"/><circle cx="33" cy="31" r="1.3" fill="currentColor" stroke="none"/>',
+    cicada:'<circle cx="24" cy="11" r="2.6"/>'
+      +'<circle cx="21.6" cy="10.6" r="0.8" fill="currentColor" stroke="none"/><circle cx="26.4" cy="10.6" r="0.8" fill="currentColor" stroke="none"/>'
+      +'<path d="M24,14 C21.5,18 21.5,31 24,37 C26.5,31 26.5,18 24,14 Z"/>'
+      +'<path d="M22.5,15 C15,18 12,29 15.5,37 C19,34 22,27 23,20"/><path d="M25.5,15 C33,18 36,29 32.5,37 C29,34 26,27 25,20"/>',
+    gecko:'<path d="M24,9 C21,9 20,12 21,15 C19.5,20 20,26 24,29 C28,26 28.5,20 27,15 C28,12 27,9 24,9 Z"/>'
+      +'<path d="M24,29 C24,33 21,35 23,40 C24,42 26,41 26,39"/>'
+      +'<path d="M21.5,14 L16.5,11 L14.5,12.5"/><path d="M26.5,14 L31.5,11 L33.5,12.5"/>'
+      +'<path d="M22.5,26 L17,28.5 L15.5,27"/><path d="M25.5,26 L31,28.5 L32.5,27"/>'
+      +'<circle cx="22.6" cy="11.4" r="0.7" fill="currentColor" stroke="none"/>',
+    tortoise:'<path d="M12,30 C12,20 19,16 24,16 C29,16 36,20 36,30"/><path d="M12,30 L36,30"/>'
+      +'<path d="M18,17.5 V30 M24,16 V30 M30,17.5 V30"/><path d="M13.5,25 C24,22 34.5,25"/>'
+      +'<path d="M36,28 C40,27.5 42,25 41,22.5 C40.3,21 38.2,21.5 37.5,23.5"/>'
+      +'<circle cx="40" cy="24" r="0.7" fill="currentColor" stroke="none"/>'
+      +'<path d="M17,30 L16,34 L19,34"/><path d="M29,30 L28,34 L31,34"/><path d="M12,29 L9,31"/>',
+    fanmussel:'<path d="M24,40 L14.5,13 C18,11 30,11 33.5,13 Z"/>'
+      +'<path d="M24,40 L16.5,14.5 M24,40 L20.5,12.5 M24,40 L24,11.7 M24,40 L27.5,12.5 M24,40 L31.5,14.5"/>',
+    mantis:'<path d="M11,13 L15,11.5 L15,15 Z"/><path d="M13,12 L10,8"/>'
+      +'<path d="M15,13.5 C19,14.5 23,16.5 25.5,19.5"/>'
+      +'<path d="M25.5,19.5 C31,21.5 35,27 33,33 C32,36 29,35 27.5,31"/>'
+      +'<path d="M16,14 L20.5,19 L16.5,23"/>'
+      +'<path d="M26,21 L21,31 L19,37"/><path d="M29.5,23.5 L34,33"/>'
+      +'<circle cx="12.6" cy="12.8" r="0.7" fill="currentColor" stroke="none"/>',
+    antlion:'<ellipse cx="24" cy="15" rx="15" ry="4.5"/><path d="M9,15 L24,35 L39,15"/>'
+      +'<ellipse cx="24" cy="19.5" rx="10" ry="3"/><ellipse cx="24" cy="24.5" rx="5.5" ry="2"/>'
+      +'<path d="M22,33 L20,29"/><path d="M26,33 L28,29"/>',
+    urchin:'<circle cx="24" cy="24" r="8.5"/>'
+      +'<path d="M32.5,24 L39,24 M15.5,24 L9,24 M24,15.5 L24,9 M24,32.5 L24,39"/>'
+      +'<path d="M30,18 L34.6,13.4 M18,18 L13.4,13.4 M30,30 L34.6,34.6 M18,30 L13.4,34.6"/>'
+      +'<circle cx="24" cy="24" r="0.9" fill="currentColor" stroke="none"/><circle cx="21" cy="22" r="0.7" fill="currentColor" stroke="none"/><circle cx="27" cy="26" r="0.7" fill="currentColor" stroke="none"/>'
+  };
+  Array.prototype.forEach.call(document.querySelectorAll(".ill[data-critter]"), function(el){
+    var t = el.getAttribute("data-critter");
+    el.innerHTML = wI(ILL[t] || "");
+  });
+
+  /* ---- map interactivity ---- */
+  var panel = document.getElementById("mapPanel"),
+      def = document.getElementById("mapDefault"),
+      det = document.getElementById("mapDetail"),
+      jump = document.getElementById("mpJump"),
+      reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  var cur = null, lastPin = null;
+
+  var MAP_CS = {
+    "Bavella Vista Camp|mtn":{kind:"★ Základna · dny 1–5",blurb:"Vaše horské zázemí na pět dní, přímo pod žulovými jehlami. Vše z horské části tohoto průvodce je odsud kousek autem.",stat:"Nadm. výška ≈ 1000 m · Col de Bavella"},
+    "Porto-Vecchio Apartment|sea":{kind:"★ Základna · pobřeží",blurb:"Vaše přímořské zázemí pro druhou půlku — pár minut od velkých pláží a přístavních lodí do rezervace.",stat:"Nadm. výška ≈ 40 m · záliv Porto-Vecchio"},
+    "U Calanconi · Chisà|mtn":{kind:"Via ferrata · vertikála",blurb:"Zajištěná cesta po skalní stěně s žebříky a lanovou lávkou, celou dobu na jištění — pořádná zábava pro sportovního teenagera bez závratí.",stat:"Min. věk 12 · dosah ≥ 1,70 m · 3,5–4 h"},
+    "Trou de la Bombe|mtn":{kind:"Túra · vyhlídka",blurb:"Hodina od Col de Bavella k obří díře provrtané větrem skrz skálu — ideální místo pro pozorování muflonů a orlů skalních.",stat:"Od 1218 m · ~1 h tam"},
+    "Purcaraccia & Pulischellu|mtn":{kind:"Kaňoning · vodní",blurb:"Žulové skluzavky a tyrkysové tůně klesající z hory — klasika kaňoningu v Bavelle, s mírnějším Pulischellu hned vedle.",stat:"Min. věk ~7–12 · nutný průvodce"},
+    "Quenza Deer Enclosure|mtn":{name:"Obora s jeleny · Quenza",kind:"Divočina · ochrana",blurb:"Právě tady byl od roku 1985 jelen korsický zachráněn před vyhynutím. Skutečný ochranářský příběh, nenásilně vyprávěný.",stat:"U vesnice Quenza · snadná návštěva"},
+    "Musée de l'Alta Rocca|mtn":{name:"Muzeum Alta Rocca · Levie",kind:"Muzeum · hluboký čas",blurb:"V Levie: 10 000 let Korsiky — kostra vyhynulého prolaga a Dáma z Bonifacia, nejstarší člověk ostrova. Ideální na deštivý den.",stat:"Levie · ≈ 4 € · do 10 let zdarma"},
+    "Piscia di Gallu|mtn":{kind:"Túra · vodopád v lese",blurb:"Starým laricijským borem k 60m vodopádu ze žulové stěny — teritorium brhlíka. Závěrečný sestup je strmý.",stat:"≈ 4,6 km · 2 h 15 · vyrazte brzy"},
+    "Golfe de Porto-Vecchio|sea":{name:"Záliv Porto-Vecchio",kind:"Kajak / SUP · vlastní silou",blurb:"Za rozbřesku propádlujte chráněný záliv na mořském kajaku nebo prkně a vklouzněte do zátok, kam se výletní lodě nedostanou.",stat:"Klidný záliv · nejlépe ráno"},
+    "Palombaggia & Santa Giulia|sea":{kind:"Pláž + ekologie",blurb:"Pohlednicové pláže s tmavými loukami posidonie u dna — kyslíkovou továrnou Středomoří. Čtěte je jako vědec.",stat:"10–20 min od základny · teplé mělčiny"},
+    "Rocky coves & sea life|sea":{name:"Skalnaté zátoky",kind:"Šnorchlování · od břehu",blurb:"Loď netřeba: s maskou a ploutvemi podél skal potkáte pyskouny, ježovky, hvězdice a možná i chobotnici.",stat:"Dívej se, nesahej · okraje skal"},
+    "Îles Lavezzi & Mérouville|sea":{kind:"Loď + šnorchl · vrchol výletu",blurb:"Velký den: připlujte do rezervace Bonifacio a šnorchlujte nad „Městem kaniců“ mezi bílými žulovými ostrůvky. Naplánujte na jasnou předpověď.",stat:"Odjezd ~9:00 · od ≈ 40 € / os."}
+  };
+  function field(g, name){
+    if((window.__lang || "en") === "cs"){
+      var cs = MAP_CS[g.getAttribute("data-name") + "|" + g.getAttribute("data-zone")];
+      if(cs && cs[name] != null) return cs[name];
+    }
+    return g.getAttribute("data-" + name) || "";
+  }
+  function render(g){
+    document.getElementById("mpKind").textContent  = field(g,"kind");
+    document.getElementById("mpName").textContent  = field(g,"name");
+    document.getElementById("mpBlurb").textContent = field(g,"blurb");
+    document.getElementById("mpStat").textContent  = field(g,"stat");
+  }
+  window.__refreshMapPanel = function(){ if(lastPin) render(lastPin); };
+
+  function pick(g){
+    Array.prototype.forEach.call(document.querySelectorAll(".pin.active"), function(p){ p.classList.remove("active"); });
+    g.classList.add("active");
+    lastPin = g;
+    render(g);
+    cur = g.getAttribute("data-target");
+    panel.classList.remove("zone-mountain","zone-coast");
+    panel.classList.add(g.getAttribute("data-zone") === "sea" ? "zone-coast" : "zone-mountain");
+    def.hidden = true; det.hidden = false;
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".pin"), function(g){
+    g.addEventListener("click", function(){ pick(g); });
+    g.addEventListener("keydown", function(e){
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault(); pick(g); }
+    });
+  });
+  if(jump){
+    jump.addEventListener("click", function(){
+      if(!cur) return;
+      var el = document.getElementById(cur);
+      if(!el) return;
+      el.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"});
+      el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+    });
+  }
+})();
+</script>
+
+<script>
+/* ===== EN / CS language toggle ===== */
+(function(){
+  "use strict";
+  var htmlEl = document.documentElement;
+  var els = Array.prototype.slice.call(document.querySelectorAll("[data-i18n]"));
+  els.forEach(function(el){ el.setAttribute("data-en", el.innerHTML); });
+
+  var CS = {
+    "nav.bases":"Základny","nav.map":"Mapa","nav.species":"Atlas druhů","nav.small":"Malá říše",
+    "nav.mountain":"Bavella","nav.coast":"Moře","nav.notebook":"Terénní práce",
+
+    "hero.kick1":"Rodinný terénní zápisník","hero.kick2":"Corse-du-Sud · léto 2026",
+    "hero.h1":"Od žulových jehel<br>k <em>městu kaniců</em>",
+    "hero.lede":"Devět dní na Ostrově krásy, čtených jako jeden dlouhý sestup — pět dní vysoko v laricijských borech <strong>Bavelly</strong>, pak dolů k tyrkysové rezervaci u <strong>Porto-Vecchia</strong>. Tohle je váš přírodovědný briefing: co tu žije, kde to najít a jak z dovolené udělat terénní výzkum.",
+    "hero.meta":"<span>◵ <b>2 základny</b> · hory → moře</span><span>⌖ <b>42,79° s. š., 9,22° v. d.</b></span><span>❧ <b>7</b> endemitů k zapsání</span><span>△ 1218 m &rarr; 0 m</span>",
+    "hero.scroll":"Začít sestup",
+
+    "bases.eye":"Kde spíte, kde se toulá­te","bases.h2":"Dva tábory, dva světy",
+    "bases.p":"Cesta má přirozenou páteř. Nejdřív vysoký žulový amfiteátr Bavelly, kde vzduch voní pryskyřicí a skála se za soumraku mění v měď. Pak moře, kde tentýž ostrov ukazuje svou druhou tvář — louky posidonie, bílé ostrůvky a ryby, kterým můžete pohlédnout do očí.",
+    "b1.phase":"Dny 1–5 · Výšiny",
+    "b1.p":"Vaše základna leží pod <em>Aiguilles de Bavella</em> — sedmi žulovými věžemi, kterým místní říkají <em>Cinque Frati</em> a jejich sestry. Ráno vás vzbudí sokoli kroužící kolem věží; od stanu vykročíte rovnou na GR20 a červeně značené stezky. Celá horská část tohoto průvodce je kousek autem.",
+    "b1.feats":"<li>◈ Aiguilles &amp; GR20</li><li>◈ Laricijský bor</li><li>◈ Kaňony &amp; via ferrata</li><li>◈ Chladné horské noci</li>",
+    "b2.phase":"Poté · Pobřeží",
+    "b2.p":"Z průsmyků dolů do „Města soli“. Odtud jsou velké pláže <em>Palombaggia</em> a <em>Santa Giulia</em> pár minut a z přístavu vyplouvají lodě do <em>Přírodní rezervace Bouches de Bonifacio</em> — jedné z nejbohatších mořských svatyní Středomoří.",
+    "b2.feats":"<li>◈ Souostroví Lavezzi</li><li>◈ Šnorchlování &amp; kanici</li><li>◈ Louky posidonie</li><li>◈ Teplé mělké zátoky</li>",
+
+    "map.eye":"Zorientujte se · Corse-du-Sud","map.h2":"Celý výlet na jedné mapě",
+    "map.p":"Schéma jižního cípu ostrova — není v měřítku, ale věrné tvaru vašich dní. Klepněte na značku a zjistěte, co to je, a přeskočte na detail. Sledujte tečkovanou čáru a projděte sestup od jehel Bavelly dolů k moři.",
+    "map.ph":"Klepněte na značku",
+    "map.legend":"<span><span class=\"lg-star\">★</span> Vaše dvě základny</span><span><span class=\"lg-dot m\"></span> Horská aktivita · Bavella</span><span><span class=\"lg-dot s\"></span> Mořská aktivita · pobřeží</span><span><span class=\"lg-line\"></span> Sestup · vrchol → moře</span>",
+    "map.hint":"Značky jsou umístěny od oka, ne podle GPS — poslouží k představě, jak do sebe horská a pobřežní část výletu zapadají.",
+    "map.jump":"Zobrazit celý detail ↓",
+
+    "sp.eye":"Atlas druhů · Faune &amp; Flore Endémique","sp.h2":"Sedm ostrovanů, kteří nežijí nikde jinde na Zemi",
+    "sp.p":"Ostrovy jsou laboratoře evoluce. Odříznutá na miliony let, korsická zvířata i rostliny se vydaly vlastní cestou — některá se zmenšila, jiná zmizela, pár jich přežívá jen tady. Odškrtněte si každý, jakmile ho najdete. Praví přírodovědci si vedou deník; veďte si ho také.",
+    "sp.logged":"/ 7 druhů zapsáno","sp.hint":"Klepněte na „Zapsat pozorování“ na kterékoli kartě, když druh spatříte ve volné přírodě.",
+    "sp.curio.lab":"Pro zvídavé","sp.log.idle":"Zapsat pozorování","sp.log.museum":"Zapsat v muzeu","sp.log.done":"✓ Zapsáno",
+
+    "sp1.tags":"<span class=\"tag endemic\">Endemit</span><span class=\"tag status\">IUCN · zranitelný</span>",
+    "sp1.name":"Brhlík korsický","sp1.corsu":"corsu: „a nuciasgiola“ · ~1000–1500 m",
+    "sp1.desc":"<b>Jediný pták, který nežije nikde než na Korsice</b> — a jediný pták endemický pro celou metropolitní Francii. Drobný akrobat s černou čepičkou, který sbíhá po kmenech hlavou dolů a žije i umírá díky semenům jediného stromu: starého laricijského boru.",
+    "sp1.data":"<span><b>Kde:</b> bory Ospedale &amp; Bavella</span><span><b>Velikost:</b> 12 cm</span>",
+    "sp1.curiop":"Celé jeho přežití závisí na <b>vzrostlých</b> borovicích starších 100 let — mladé výsadby nestačí. Když lesní požár zničí prastarý porost, náhrada může trvat sto let. Živá lekce o tom, proč „prales“ není jen slovo.",
+
+    "sp2.tags":"<span class=\"tag endemic\">Endem. poddruh</span><span class=\"tag status\">Návrat z vyhynutí</span>",
+    "sp2.name":"Jelen korsický","sp2.corsu":"corsu: „u cerbu“ · malý &amp; tmavý",
+    "sp2.desc":"Zakrslý jelen — menší a tmavší než pevninští příbuzní. V 60. letech na Korsice <b>zcela vyhynul</b>, pak byl zachráněn převezením zbylých kusů ze Sardinie. Každý jelen na ostrově dnes pochází z této záchrany.",
+    "sp2.data":"<span><b>Kde:</b> obora Quenza &amp; Alta Rocca</span><span><b>Od:</b> reintrodukce 1985</span>",
+    "sp2.curiop":"Návrat začal pouhými <b>13 zakladateli</b>. Učebnicový příklad „genetického hrdla lahve“ — zeptejte se, proč tak málo předků znervózňuje ochránce kvůli příbuzenské plemenitbě a jak to Parc naturel řeší.",
+
+    "sp3.tags":"<span class=\"tag endemic\">Korsická rasa</span><span class=\"tag status\">~600 kusů</span>",
+    "sp3.name":"Muflon","sp3.corsu":"corsu: „a muvra“ · symbol ostrova",
+    "sp3.desc":"Divoká ovce vrcholů — zatočené rohy, jistý krok po holé skále. Hrdá silueta Korsiky proti pokroucené borovici. Na celém ostrově zbývá jen asi <b>600 kusů</b>, třetina z nich právě zde v masivu Bavella.",
+    "sp3.data":"<span><b>Kde:</b> vysoké skalní svahy, za rozbřesku/soumraku</span><span><b>Skupiny:</b> 2–3 kusy</span>",
+    "sp3.curiop":"Mufloni pocházejí z prvních <b>domácích ovcí přivezených neolitiky</b> asi před 8000 lety, které pak zdivočely. Jsou tedy „divocí“, nebo „zplanělí“? Skutečně diskutovaná otázka — ideální, aby mladý biolog obhájil obě strany.",
+
+    "sp4.tags":"<span class=\"tag endemic\">Endemit</span><span class=\"tag plain\">Obojživelník</span>",
+    "sp4.name":"Čolek korsický","sp4.corsu":"corsu horský čolek · čisté studené bystřiny",
+    "sp4.desc":"Štíhlý čolek 10–13 cm, který se ukrývá pod kameny v ledových bystřinách nad 600 m. Žije <b>jen na Korsice</b>. Nadzvedněte kámen v bavellském potoce (opatrně a vraťte ho!) a možná ho potkáte.",
+    "sp4.data":"<span><b>Kde:</b> skalní potoky &amp; prameny &gt;600 m</span><span><b>Délka:</b> ≤ 13 cm</span>",
+    "sp4.curiop":"Jako dospělec nemá téměř <b>žádné plíce</b> a dýchá hlavně kůží — proto potřebuje chladnou vodu bohatou na kyslík. Vysazení pstruzi žerou larvy; čistý potok je celý jeho svět.",
+
+    "sp5.tags":"<span class=\"tag endemic\">Endem. strom</span><span class=\"tag plain\">Flóra</span>",
+    "sp5.name":"Borovice laricijská","sp5.corsu":"corsu: „u pinu laricciu“ · obr",
+    "sp5.desc":"Katedrální sloupy Bavelly a Ospedale — vysoké, rovné a prastaré. Některé žijící stromy jsou <b>přes 500 let staré</b>. Napoleonovo loďstvo si cenilo jejich stěžňů; brhlík i bezpočet hmyzu na nich závisí.",
+    "sp5.data":"<span><b>Kde:</b> všude nad 800 m</span><span><b>Věk:</b> až 500+ let</span>",
+    "sp5.curiop":"Spočítejte přesleny větví po mladém kmeni — zhruba jeden za rok — nebo letokruhy na pařezu. Čtete <b>živý kalendář</b>. Jediná stará borovice tu mohla být semenáčkem dřív, než vyplul Kolumbus.",
+
+    "sp6.tags":"<span class=\"tag endemic\" style=\"--card-accent:var(--sea)\">Hvězda rezervace</span><span class=\"tag status\">Chráněný · zotavuje se</span>",
+    "sp6.name":"Kanic středomořský","sp6.corsu":"le mérou brun · „Mérouville“, Lavezzi",
+    "sp6.desc":"Zvědavá statná ryba velká jako pes, která vás při šnorchlování klidně pozoruje. Ve Středomoří téměř vylovena, ale <b>uvnitř rezervace Bonifacio se vrátila</b>, kde teď velcí staří jedinci vládnou mezi skalami.",
+    "sp6.data":"<span><b>Kde:</b> Lavezzi &amp; Cerbicale, na výletě lodí</span><span><b>Velikost:</b> až 1,2 m</span>",
+    "sp6.curiop":"Téměř každý kanic se <b>rodí jako samice a později se mění v samce</b> — „postupný hermafroditismus“. Proto jsou největší ryby staří samci a proto jejich ochrana chrání celou rozmnožovací populaci.",
+
+    "sp7.tags":"<span class=\"tag status\">Vyhynulý</span><span class=\"tag plain\">Jen v muzeu</span>",
+    "sp7.name":"Prolagus, „králíko-krysa“","sp7.corsu":"ztracený ostrovan · Musée de Levie",
+    "sp7.desc":"Druh, který živý nespatříte — malý bezocasý příbuzný králíků, jenž skákal po Korsice a Sardinii miliony let a <b>přežil až do historické doby</b>, pak zmizel. Jeho kostru potkáte v muzeu Alta Rocca v Levie.",
+    "sp7.data":"<span><b>Kde:</b> Musée de l'Alta Rocca, Levie</span><span><b>Osud:</b> vyhynul ~doba římská+</span>",
+    "sp7.curiop":"Sdílí vitrínu s <b>Dámou z Bonifacia</b> — nejstarším lidským pohřbem Korsiky, ~8500 př. n. l. Vyhynutí a příchod člověka vedle sebe. Zeptejte se: pomohli lidé prolaga dorazit? Ostrovy jsou přesně takhle křehké.",
+
+    "small.eye":"Malá říše · e piccule bestie","small.h2":"Nedívejte se jen nahoru — dívejte se dolů a po setmění",
+    "small.p":"Velké endemity plní titulky, ale skutečná hustota života na Korsice je drobná: motýli, které najdete jen tady, gekoni velcí jako prst, želvy v křoví a celé město v každé skalní tůňce. Tady je, co lovit, až budete mít oko.",
+
+    "c1.tags":"<span class=\"mini-tag end\">Endemit</span><span class=\"mini-tag warn\">Přísně chráněný</span>",
+    "c1.name":"Otakárek korsický",
+    "c1.p":"Jeden z nejchráněnějších motýlů Evropy — žije <b>jen na Korsice a Sardinii</b>. Velká světle žlutá křídla lemovaná černou, s modro-červenými očky a krátkými ostruhami.",
+    "c1.spot":"<b>KDE HLEDAT ·</b> slunný macchie &amp; skalní svahy, květen–červenec, u fenyklu obrovského a routy korsické. Jen pozorujte — nikdy nechytejte.",
+
+    "c2.tags":"<span class=\"mini-tag plain\">Zvuk léta</span>","c2.name":"Cikáda",
+    "c2.p":"Ten neúnavný polední bzukot <em>je</em> korsické léto — samci rozechvívají bubínkové orgány, aby přivolali samice. Umlknou v okamžiku, kdy se zatáhne nebo ochladí.",
+    "c2.spot":"<b>KDE HLEDAT ·</b> jděte za zvukem ke kmeni; hledejte prázdnou jantarovou svlečku, kterou nymfa rozpárala a vylezla z ní.",
+
+    "c3.tags":"<span class=\"mini-tag end\">Nejmenší v Evropě</span>","c3.name":"Gekon listoprstý",
+    "c3.p":"Sotva na délku prstu (6–7 cm) a převážně noční. Loví hmyz jako malá kočka — přikrade se a skočí. Miluje žulu.",
+    "c3.spot":"<b>KDE HLEDAT ·</b> po setmění posviťte baterkou na staré kamenné zdi, balvany a skály. Pomalu; ve světle ztuhne.",
+
+    "c4.tags":"<span class=\"mini-tag warn\">Chráněná</span>","c4.name":"Želva zelenavá",
+    "c4.p":"Želva korsického křoví, pomalu se prokousávající macchií a spásající květy. Kdysi běžná, dnes stále vzácnější — chráněná zákonem po celé Evropě.",
+    "c4.spot":"<b>KDE HLEDAT ·</b> teplá rána na cestách macchií. Vyfoťte ji, poznamenejte místo — nikdy nezvedejte ani neberte domů.",
+
+    "c5.tags":"<span class=\"mini-tag warn\">Kriticky ohrožená</span>","c5.name":"Kyjovka vznešená",
+    "c5.p":"Obří lastura Středomoří — až metr vysoká, zapíchnutá špičkou dolů v mořské trávě. Parazit jich <b>od roku 2016 zahubil téměř všechny</b>, takže živá je opravdová vzácnost.",
+    "c5.spot":"<b>KDE HLEDAT ·</b> v loukách posidonie při šnorchlování; můžete najít staré prázdné lastury. Potkáte-li živou, držte odstup.",
+
+    "c6.tags":"<span class=\"mini-tag plain\">Mistr maskování</span>","c6.name":"Kudlanky &amp; strašilky",
+    "c6.p":"Mistři přestrojení v suché trávě — kudlanka strne jako větvička a pak udeří ve zlomku vteřiny. Strašilky dovádějí neviditelnost ještě dál.",
+    "c6.spot":"<b>KDE HLEDAT ·</b> stébla suché trávy a keře v pozdním létě. Hledejte mimozemskou hlavu, která se za vámi otáčí.",
+
+    "c7.tags":"<span class=\"mini-tag plain\">Skrytá past</span>","c7.name":"Mravkolev",
+    "c7.p":"Ty malé kuželovité jamky v suchém chráněném písku jsou pasti. Dole zahrabaná dravá larva čeká, až mravenec sklouzne po drolícím se svahu.",
+    "c7.spot":"<b>ZKUS TO ·</b> shoďte jediné zrnko písku do trychtýře a sledujte, jak sebou dno cukne, když lovec zareaguje.",
+
+    "c8.tags":"<span class=\"mini-tag plain\">Město v tůňce</span>","c8.name":"Ježovky &amp; spol.",
+    "c8.p":"Fialové ježovky, poustevníčci, slizouni a hvězdice sdílejí prosluněné mělčiny — celé město pod 30 cm vody, když se dost zpomalíte, abyste ho viděli.",
+    "c8.spot":"<b>KDE HLEDAT ·</b> skalní mělčiny za klidného dne. Pozor na ostny ježovek — dívej se, nesahej.",
+
+    "mt.eye":"Ze základny Bavella · dny 1–5","mt.h2":"Žulové hřiště",
+    "mt.p":"Pro třináctiletého, který žije sportem, je tohle to pravé: teplá skála, studená voda, expozice s lanem. Věkové hranice a ceny níže jsou orientační pro rok 2026 — vždy si je potvrďte s průvodcovskou firmou a pamatujte, že do bavellských kaňonů se teď smí <b>jen s profesionálním průvodcem</b>.",
+
+    "v1.top":"<div><span class=\"kind\">Kaňoning · vodní</span><h3>Kaňon Purcaraccia</h3></div><span class=\"score\">◆◆◆</span>",
+    "v1.body":"<p>Ten slavný: přírodní žulové skluzavky a tyrkysové tůně klesající po úbočí. Skluzy, skoky a slaňování v teplé letní vodě — čirý adrenalin s přilbou na hlavě.</p>",
+    "v1.stats":"<div><dt>Min. věk</dt><dd>~12 let</dd></div><div><dt>Nutné</dt><dd>umět plavat</dd></div><div><dt>Délka</dt><dd>≈ půlden</dd></div><div><dt>Přístup</dt><dd class=\"warn\">nutný průvodce</dd></div>",
+
+    "v2.top":"<div><span class=\"kind\">Kaňoning · mírný úvod</span><h3>Kaňon Pulischellu</h3></div><span class=\"score\">◆◆</span>",
+    "v2.body":"<p>Přátelský začátečnický kaňon Bavelly — hravé tůně a malé skluzy v zelené soutěsce. Když se přidají mladší sourozenci nebo nervózní nováčci, tohle dodá odvahu před Purcaraccií.</p>",
+    "v2.stats":"<div><dt>Min. věk</dt><dd>~7 let</dd></div><div><dt>Úroveň</dt><dd>seznámení</dd></div><div><dt>Délka</dt><dd>≈ 2–3 h</dd></div><div><dt>Přístup</dt><dd class=\"warn\">nutný průvodce</dd></div>",
+
+    "v3.top":"<div><span class=\"kind\">Via ferrata · vertikála</span><h3>U Calanconi · Chisà</h3></div><span class=\"score\">◆◆◆</span>",
+    "v3.body":"<p>Zajištěná cesta po stěně s žebříky, lanovou lávkou a spoustou vzduchu pod patami — celou dobu na jištění. Pořádná zábava pro sportovního teenagera bez závratí a s dost dlouhými pažemi.</p>",
+    "v3.stats":"<div><dt>Min. věk</dt><dd>12 let</dd></div><div><dt>Dosah</dt><dd class=\"warn\">≥ 1,70 m nahoru</dd></div><div><dt>Délka</dt><dd>3,5–4 h</dd></div><div><dt>Sezóna</dt><dd>čvn–zář denně</dd></div>",
+
+    "v4.top":"<div><span class=\"kind\">Túra · vodopád v lese</span><h3>Piscia di Gallu</h3></div><span class=\"score\">◆◆</span>",
+    "v4.body":"<p>Laricijským borem Ospedale k ~60m vodopádu padajícímu ze žulové stěny, kolem balancujícího balvanu „Sentinelle“. Většinu cesty snadné — závěrečný jištěný sestup k úpatí je strmý a ne pro malé děti.</p>",
+    "v4.stats":"<div><dt>Vzdálenost</dt><dd>≈ 4,6 km</dd></div><div><dt>Čas</dt><dd>≈ 2 h 15</dd></div><div><dt>Převýšení</dt><dd>≈ 200 m</dd></div><div><dt>Tip</dt><dd>vyrazte brzy</dd></div>",
+
+    "v5.top":"<div><span class=\"kind\">Túra · vyhlídka</span><h3>Trou de la Bombe</h3></div><span class=\"score\">◆◆</span>",
+    "v5.body":"<p>Červeně značená hodina od Col de Bavella k obří díře provrtané větrem skrz skálu (<em>U Cumpuleddu</em>). Ideální místo, kde prohlížet jehly a hledat muflony, orly skalní i orlosupy.</p>",
+    "v5.stats":"<div><dt>Odkud</dt><dd>průsmyk 1218 m</dd></div><div><dt>Čas</dt><dd>≈ 1 h jedním směrem</dd></div><div><dt>Pozor na</dt><dd>dravce</dd></div><div><dt>Vezměte</dt><dd>dalekohled</dd></div>",
+
+    "v6.top":"<div><span class=\"kind\">Divočina · ochrana</span><h3>Obora s jeleny · Quenza</h3></div><span class=\"score\">◆◆</span>",
+    "v6.body":"<p>Právě ta obora, kde byl od roku 1985 jelen korsický zachráněn před vyhynutím. Krátká, nenáročná návštěva se skutečným ochranářským příběhem — spojte ji s procházkou „po stopách jelena“.</p>",
+    "v6.stats":"<div><dt>U</dt><dd>vesnice Quenza</dd></div><div><dt>Náročnost</dt><dd>snadná</dd></div><div><dt>Téma</dt><dd>návrat druhu</dd></div><div><dt>Nejlépe</dt><dd>ráno</dd></div>",
+
+    "v7.top":"<div><span class=\"kind\">Muzeum · hluboký čas</span><h3>Musée de l'Alta Rocca</h3></div><span class=\"score\">◆◆</span>",
+    "v7.body":"<p>V Levie: 10 000 let Korsiky v jedné místnosti — kostra vyhynulého prolaga a Dáma z Bonifacia, nejstarší člověk ostrova. Příjemná hostina pro mozek na deštivý den mezi dobrodružstvími.</p>",
+    "v7.stats":"<div><dt>Otevřeno</dt><dd>čvn–zář denně*</dd></div><div><dt>Vstup</dt><dd>≈ 4 €</dd></div><div><dt>Do 10 let</dt><dd>zdarma</dd></div><div><dt>*</dt><dd>ne ne/svátky</dd></div>",
+
+    "ct.eye":"Z apartmánu v Porto-Vecchiu · Moře","ct.h2":"Do modré rezervace",
+    "ct.p":"Teď sestup dosáhl hladiny moře. <em>Bouches de Bonifacio</em> je přísně chráněná mořská rezervace — a právě proto je šnorchlování tak dobré. Berte jen fotky a ryby přijdou k vám.",
+
+    "v8.top":"<div><span class=\"kind\">Loď + šnorchl · vrchol výletu</span><h3>Îles Lavezzi &amp; Mérouville</h3></div><span class=\"score\">◆◆◆</span>",
+    "v8.body":"<p>Den, kolem kterého naplánovat výlet. Vyplujte z Porto-Vecchia kolem útesů Bonifacia k hrsti bílých žulových ostrůvků a plavte nad „Městem kaniců“ — čirá voda, žulové balvany a nevzrušené ryby. Šnorchl se obvykle půjčuje.</p>",
+    "v8.stats":"<div><dt>Odjezd</dt><dd>≈ 9:00 přístav</dd></div><div><dt>Na ostrově</dt><dd>koupání + procházka</dd></div><div><dt>Od</dt><dd>≈ 40 €/os.</dd></div><div><dt>Hvězda</dt><dd>kanic</dd></div>",
+
+    "v9.top":"<div><span class=\"kind\">Pláž + ekologie</span><h3>Palombaggia &amp; Santa Giulia</h3></div><span class=\"score\">◆◆◆</span>",
+    "v9.body":"<p>Pohlednicové pláže pár minut od apartmánu — ale čtěte je jako vědec. Tmavé podmořské stíny jsou louky mořské trávy <em>posidonie</em>, kyslíková továrna a školka ryb Středomoří. Naplavené hnědé kuličky jsou její vlákna.</p>",
+    "v9.stats":"<div><dt>Od základny</dt><dd>≈ 10–20 min</dd></div><div><dt>Voda</dt><dd>teplá, mělká</dd></div><div><dt>Hledejte</dt><dd>trávu, potěr</dd></div><div><dt>Nejlepší světlo</dt><dd>ráno / večer</dd></div>",
+
+    "v10.top":"<div><span class=\"kind\">Šnorchl · od břehu</span><h3>Skalnaté zátoky &amp; život v moři</h3></div><span class=\"score\">◆◆</span>",
+    "v10.body":"<p>Loď netřeba: s maskou a ploutvemi podél skalnatých okrajů zátok objevíte pyskouny duhové, sapíny, ježovky, hvězdice a možná chobotnici. Levná podvodní kamera udělá ze sportovního dítěte terénního fotografa.</p>",
+    "v10.stats":"<div><dt>Výbava</dt><dd>maska + ploutve</dd></div><div><dt>Nejlepší místa</dt><dd>okraje skal</dd></div><div><dt>Pravidlo</dt><dd class=\"warn\">dívej se, nesahej</dd></div><div><dt>Bonus</dt><dd>chobotnice!</dd></div>",
+
+    "v11.top":"<div><span class=\"kind\">Kajak / SUP · vlastní silou</span><h3>Golfe de Porto-Vecchio</h3></div><span class=\"score\">◆◆</span>",
+    "v11.body":"<p>Pro sportovce, který neposedí: propádlujte chráněný záliv na mořském kajaku nebo prkně. Tiché, vlastní silou, a nejlepší způsob, jak vklouznout do zátok, kam výletní lodě nezajedou — hladká voda za rozbřesku.</p>",
+    "v11.stats":"<div><dt>Náročnost</dt><dd>vaše nohy/paže</dd></div><div><dt>Voda</dt><dd>klidný záliv</dd></div><div><dt>Kdy</dt><dd>ranní klid</dd></div><div><dt>Pozor</dt><dd>zesílení větru</dd></div>",
+
+    "nb.eye":"Proměňte dovolenou v terénní výzkum","nb.h2":"Zápisník mladého přírodovědce",
+    "nb.p":"Zvídavá, vědecky založená mysl si z Korsiky odnese desetkrát víc než roli fotek. Tady jsou skutečné metody terénního biologa — dost malé, aby se daly dělat na stezce či pláži, a dost opravdové, aby se z nich dal napsat referát.",
+    "n1.h3":"Naučte se zvukovou stopu hor",
+    "n1.p":"Většinu lesních zvířat dřív uslyšíte, než uvidíte. Seďte pět minut potichu a jen poslouchejte — kázeň, které ptáčkaři říkají „sit spot“.",
+    "n1.try":"<b>Zkus to</b>Brhlík korsický vydává nosové, opakované <em>„ví-ví-ví“</em>. Naučte se ho a pak ptáka najděte. Nejdřív uši, pak oči.",
+    "n2.h3":"Přečtěte věk stromu",
+    "n2.p":"K určení stáří borovice ji nemusíte kácet. Spočítejte roční přesleny větví po mladém kmeni nebo letokruhy na spadlé kládě či pařezu.",
+    "n2.try":"<b>Zkus to</b>Najděte nejstarší borovici, jakou dokážete, a odhadněte rok jejího zrození. Žila za Velké francouzské revoluce? Skoro jistě.",
+    "n3.h3":"Kreslete, nejen fotografujte",
+    "n3.p":"Darwin a každý velký přírodovědec kreslili to, co viděli. Kreslení vás nutí <em>všímat si</em> — kolik prstů, kde je proužek, jak drží list.",
+    "n3.try":"<b>Zkus to</b>Veďte si jeden malý zápisník. Datum, místo, počasí, skica. Přesně tenhle formát je skutečný vědecký terénní deník.",
+    "n4.h3":"Prozkoumejte hnědé kuličky na pláži",
+    "n4.p":"Ty vláknité kuličky na Palombaggii (<em>égagropiles</em>) jsou rozdrcená mořská tráva posidonie, kterou vlny svinuly. Důkaz celé podmořské louky opodál.",
+    "n4.try":"<b>Zkus to</b>Roztrhněte jednu. Ta vlákna jsou z rostliny, ne z řasy — posidonie je pravá kvetoucí rostlina žijící v moři. Proč je to pozoruhodné?",
+    "n5.h3":"Myslete jako ostrov",
+    "n5.p":"Proč má Korsika vlastního jelena, vlastního ptáka, vlastního čolka? Protože ostrovy provozují evoluci jako uzavřený pokus — tomu se říká „ostrovní biogeografie“.",
+    "n5.try":"<b>Zkus to</b>U každého endemita, kterého zapíšete, si položte tutéž otázku: co změnila izolace — velikost, barvu, potravu? Vzorec si sestavte sami.",
+    "n6.h3":"Nezanechat stopu — vědcova přísaha",
+    "n6.p":"Každý kámen, který v potoce zvednete, vrátíte. Každé zvíře pozorujte z odstupu. Nic nesbírat, nic nekrmit, nic nenechat.",
+    "n6.try":"<b>Zkus to</b>Místo sbírání fotografujte a zapisujte. Nahrajte pozorování na <em>iNaturalist</em> — z vašich dat o dovolené se stane opravdová občanská věda.",
+    "n7.h3":"Po setmění „na světlo“",
+    "n7.p":"Teplá, bezvětrná noc rozsvítí světelnou show. Zavěste světlé prostěradlo, posviťte na něj baterkou a čekejte — z tmy se vynoří noční motýli, brouci a zlatoočky.",
+    "n7.try":"<b>Zkus to</b>Nejlépe za dusné bezměsíčné noci. Vyfoťte každého návštěvníka; někteří korsičtí motýli vyrážejí dech a žádné dvě noci nejsou stejné.",
+    "n8.h3":"Zvládněte skalní tůňku",
+    "n8.p":"Mělčiny jsou školka, kterou studujete vestoje. Pohybujte se pomalu, nestíňte na vodu a nechte ji ustát, než se podíváte.",
+    "n8.try":"<b>Zkus to</b>Nabídněte do průhledné nádoby, dvě minuty pozorujte a pak jemně vylijte zpět. Chytit, pozorovat, pustit — celý cyklus, pokaždé.",
+    "n9.h3":"Přečtěte cikádí teploměr",
+    "n9.p":"Cikády rozjedou zpěv, až když je horko — zhruba nad 22 °C. Čím plnější sbor, tím teplejší vzduch. Ten hmyz je živý nástroj.",
+    "n9.try":"<b>Zkus to</b>Sledujte, jak bzukot během rána sílí, jak stoupá slunce. Doslova posloucháte, jak roste teplota.",
+
+    "rh.eye":"Návrh tvaru, ne rozvrh","rh.h2":"Rytmus devíti dní",
+    "rh.p":"Horám i moři vládne počasí, tak to berte volně. Logika: aklimatizovat se, velký kaňoning a den na lodi si nechat na dobré podmínky a nechat sestup od žuly k vodě, ať vypráví vlastní příběh.",
+    "d1.tag":"Bavella · 1218 m","d1.h3":"Přijet &amp; vzhlédnout","d1.p":"Zabydlete se v táboře, dojděte k Trou de la Bombe na hodinu, která vás naučí panorama. První pátrání po muflonech a orlech.","d1.alt":"△ vysoko &amp; sucho · lehké nohy",
+    "d2.tag":"Les Ospedale","d2.h3":"Piscia di Gallu &amp; borovice","d2.p":"Brzy ráno k vodopádu starým laricijem — chladivý stín, teritorium brhlíka. Odpoledne: zapsat druhy 1 a 5.","d2.alt":"△ lesní túra · vyrazte brzy",
+    "d3.tag":"Kaňony Bavelly","d3.h3":"Velký den dobrodružství","d3.p":"Purcaraccia (nebo Pulischellu) s průvodcem — skluzy, tůně, skoky. Nechte na nejteplejší a nejjasnější předpověď.","d3.alt":"△ vodní · rezervujte předem",
+    "d4.tag":"Chisà · Quenza · Levie","d4.h3":"Vertikála &amp; hluboký čas","d4.p":"Via ferrata U Calanconi pro hledače vzrušení; nebo obora s jeleny a muzeum v Levie na mírnější den plný příběhů. Zapsat druhy 2 a 7.","d4.alt":"△ smíšené · flexibilní",
+    "d5.tag":"Den sestupu","d5.h3":"Naposledy výšiny, dolů k pobřeží","d5.p":"Ranní pátrání v potoce po čolku, pak sjeďte bavellskou silnicí dolů k Porto-Vecchiu. Sledujte, jak ubývá nadmořská výška.","d5.alt":"△ 1218 m &rarr; 40 m",
+    "d6.tag":"Porto-Vecchio · 40 m","d6.h3":"Zabydlet se u moře","d6.p":"Plážová věda na Palombaggii, šnorchlování od břehu v zátokách, večerní pádlování v zálivu. Naladit se na rytmus slané vody.","d6.alt":"△ pobřežní · v klidu",
+    "d7.tag":"Rezervace · 0 m","d7.h3":"Lavezzi &amp; kanici","d7.p":"Vrcholný den na lodi do mořské rezervace. Šnorchl u Mérouville, setkání s druhem 6 tváří v masce. Nezbytná jasná předpověď.","d7.alt":"△ otevřené moře · podle počasí",
+    "d8.tag":"Odjezd","d8.h3":"Sepsat to","d8.p":"Dokončit terénní zápisník, nahrát nejlepší pozorování na iNaturalist, spočítat zapsané endemity. Devět dní, od moře k vrcholu, v jednom záznamu.","d8.alt":"△ úplný deník · 7/7?",
+
+    "close.eye":"Než vyrazíte · le carnet pratique",
+    "pr1":"<div class=\"ic\">🌅</div><h4>Za světlem</h4><p>Žula Bavelly září mědí za rozbřesku i soumraku a pláže jsou tehdy nejprázdnější. Časné starty porazí horko i davy.</p>",
+    "pr2":"<div class=\"ic\">💧</div><h4>Voda &amp; slunce</h4><p>Skalnaté stezky jsou bez stínu a středomořské slunce nemilosrdné. Dva litry na osobu, klobouk a k moři opalovací krém šetrný k útesům.</p>",
+    "pr3":"<div class=\"ic\">🥾</div><h4>Boty s dobrým gripem</h4><p>Mokrá žula klouže. Pořádné treky na túry; staré tenisky nebo boty do vody na kaňony a zátoky.</p>",
+    "pr4":"<div class=\"ic\">🛡️</div><h4>Průvodci &amp; věk</h4><p>Kaňoning a via ferrata se rezervují s certifikovanými průvodci, kteří na místě stanoví skutečné hranice věku a výšky. Potvrďte předem.</p>",
+    "pr5":"<div class=\"ic\">🔭</div><h4>Sbalte nástroje</h4><p>Dalekohled na vrcholy, maska na moře, podvodní kamera a jeden malý zápisník. To je celá přírodovědcova výbava.</p>",
+    "pr6":"<div class=\"ic\">🌿</div><h4>Respektujte rezervaci</h4><p>Uvnitř Bouches de Bonifacio: nesahat, nekrmit, nebrat. Je chráněná právě proto, abyste mohli potkat divokého kanice.</p>",
+    "close.line":"Sestupujte z hory pomalu. Ostrov si nechává svá nejlepší tajemství pro ty, kdo <b>se zastaví, dívají a zapisují.</b>",
+    "close.foot":"DE LA CRÊTE À LA MER · CORSE-DU-SUD · 1218 m &rarr; 0 m<br>Rodinný terénní zápisník · věk, ceny &amp; otevírací dobu si před rezervací ověřte u místních poskytovatelů<br>Zapisujte pozorování: <a href=\"#species\">iNaturalist</a> · Bon voyage &amp; bona strada"
+  };
+
+  function apply(lang){
+    els.forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      el.innerHTML = (lang === "cs" && CS[k] != null) ? CS[k] : el.getAttribute("data-en");
+    });
+    window.__lang = lang;
+    htmlEl.setAttribute("lang", lang);
+    var b = document.getElementById("langToggle");
+    if(b){
+      b.textContent = (lang === "cs") ? "EN" : "CS";
+      b.setAttribute("aria-label", (lang === "cs") ? "Switch to English" : "Přepnout do češtiny");
+    }
+    if(window.__refreshMapPanel) window.__refreshMapPanel();
+  }
+  window.__lang = "en";
+  var btn = document.getElementById("langToggle");
+  if(btn) btn.addEventListener("click", function(){ apply((window.__lang === "cs") ? "en" : "cs"); });
+})();
+</script>
+
+</body>
+</html>
