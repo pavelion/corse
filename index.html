@@ -273,6 +273,12 @@
   .venue .stats dt{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
   .venue .stats dd{margin:0;font-family:var(--mono);font-size:.82rem;color:var(--ink);font-weight:600}
   .venue .stats dd.warn{color:var(--coral)}
+  .access{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:2px 22px 16px;font-family:var(--mono);font-size:.72rem;line-height:1.45}
+  .access .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:20px;font-weight:600;letter-spacing:.02em;white-space:nowrap;flex:none}
+  .badge.walk{background:color-mix(in srgb,var(--sea) 18%,transparent);color:var(--sea-bright);border:1px solid color-mix(in srgb,var(--sea) 42%,transparent)}
+  .badge.near{background:color-mix(in srgb,var(--amber) 16%,transparent);color:var(--gold-ink);border:1px solid color-mix(in srgb,var(--amber) 40%,transparent)}
+  .badge.far{background:color-mix(in srgb,var(--coral) 14%,transparent);color:var(--coral);border:1px solid color-mix(in srgb,var(--coral) 36%,transparent)}
+  .access .amen{color:var(--ink-faint);letter-spacing:.01em}
 
   /* ============ FIELD NOTEBOOK ============ */
   .note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
@@ -497,13 +503,13 @@
       <article class="base reveal zone-mountain">
         <span class="phase" data-i18n="b1.phase">Days 1–5 · The Heights</span>
         <h3>Bavella Vista Camp</h3>
-        <span class="loc mono">Alt. ≈ 1000 m · Col de Bavella · Alta Rocca</span>
-        <p data-i18n="b1.p">Your basecamp sits under the <em>Aiguilles de Bavella</em> — seven granite towers the
-          locals call the <em>Cinque Frati</em> and their sisters. Wake to peregrines circling the
-          spires; step from the tent straight onto the GR20 and the red-marked trails. Everything in
-          this dossier's mountain half is within a short drive.</p>
+        <span class="loc mono">Alt. ≈ 780 m · Zonza · Alta Rocca</span>
+        <p data-i18n="b1.p">Your basecamp is in <em>Zonza</em>, a granite village in the Alta Rocca — 200 m from the
+          square, with a snack bar on site and shops and restaurants a short stroll away. The
+          <em>Aiguilles de Bavella</em> rise about 9 km up the road; a natural river pool is within
+          walking distance, and every mountain adventure is a short, spectacular drive from the tent.</p>
         <ul class="feats" data-i18n="b1.feats">
-          <li>◈ Aiguilles &amp; GR20</li><li>◈ Laricio pine forest</li><li>◈ Canyons &amp; via ferrata</li><li>◈ Cool mountain nights</li>
+          <li>◈ Zonza village · 3 min</li><li>◈ River pool on foot</li><li>◈ Aiguilles · 15 min drive</li><li>◈ Snack bar &amp; shops</li>
         </ul>
       </article>
 
@@ -559,12 +565,12 @@
 
           <g><circle class="map-islet" cx="515" cy="590" r="7"/><circle class="map-islet" cx="533" cy="602" r="5"/><circle class="map-islet" cx="500" cy="604" r="4"/></g>
 
-          <path class="route" d="M398,166 Q470,250 560,345 Q560,470 522,590"/>
+          <path class="route" d="M410,208 Q470,272 560,345 Q560,470 522,590"/>
 
-          <g class="map-town"><rect x="551" y="76" width="6" height="6"/><rect x="425" y="548" width="6" height="6"/><rect x="416" y="201" width="6" height="6"/></g>
+          <g class="map-town"><rect x="551" y="76" width="6" height="6"/><rect x="425" y="548" width="6" height="6"/></g>
           <text class="maptx" x="561" y="73" font-size="11">Solenzara</text>
           <text class="maptx" x="404" y="545" font-size="11" text-anchor="end">Bonifacio</text>
-          <text class="maptx" x="426" y="197" font-size="11">Zonza</text>
+          <text class="maptx" x="410" y="232" font-size="11" text-anchor="middle">Zonza</text>
           <text class="maptx" x="210" y="128" font-size="12" letter-spacing="1">AIGUILLES DE BAVELLA</text>
           <text class="maptx" x="432" y="378" font-size="10" text-anchor="middle" letter-spacing="1">FORÊT DE L'OSPEDALE</text>
           <text class="maptx big" x="628" y="250" font-size="18" transform="rotate(90 628 250)">Mer Méditerranée</text>
@@ -578,11 +584,11 @@
           <text class="maptx" x="34" y="626" font-size="9" letter-spacing="1.5">SCHÉMA · PAS À L'ÉCHELLE</text>
 
           <!-- BASECAMPS -->
-          <g class="pin base zone-mtn" tabindex="0" role="button" transform="translate(398,166)"
-             aria-label="Bavella Vista Camp, mountain basecamp"
+          <g class="pin base zone-mtn" tabindex="0" role="button" transform="translate(410,208)"
+             aria-label="Bavella Vista Camp at Zonza, mountain basecamp"
              data-name="Bavella Vista Camp" data-kind="★ Basecamp · Days 1–5" data-zone="mtn" data-target="bases"
-             data-stat="Alt. ≈ 1000 m · Col de Bavella"
-             data-blurb="Your mountain home for five days, pitched right under the granite needles. Everything in the Bavella half of this dossier is a short drive from here.">
+             data-stat="Alt. ≈ 780 m · Zonza · Alta Rocca"
+             data-blurb="Your home for five days, in Zonza village in the Alta Rocca. The Aiguilles de Bavella are about 9 km up the road — a couple of things are on foot, the rest a short drive.">
             <circle class="hit" r="18"/><circle class="pulse" r="9"/>
             <path class="star" d="M0,-10 L2.9,-3.1 L9.5,-3.1 L4.3,1.2 L5.9,7.8 L0,4 L-5.9,7.8 L-4.3,1.2 L-9.5,-3.1 L-2.9,-3.1 Z"/>
             <text class="plabel" x="0" y="-17" text-anchor="middle">Bavella Vista</text>
@@ -995,61 +1001,27 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="divider"></div>
-      <span class="eyebrow" data-i18n="mt.eye">From the Bavella basecamp · Days 1–5</span>
+      <span class="eyebrow" data-i18n="mt.eye">Based in Zonza · Days 1–5</span>
       <h2 data-i18n="mt.h2">The granite playground</h2>
-      <p data-i18n="mt.p">For a 13-year-old who lives for sport, this is the good stuff: warm rock, cold water,
-        exposure with a rope on it. Ages and prices below are typical 2026 guidance — always confirm
-        with the guiding company, and note that Bavella's canyons may now be entered
+      <p data-i18n="mt.p">You're based in Zonza village, so a couple of things are on foot and the big sights are a
+        short, gorgeous drive up the Bavella road. Each card shows <b>how far it is from camp</b> and
+        what you'll find when you arrive — cards are ordered nearest first. Ages and prices are typical
+        2026 guidance; always confirm with the guide, and note that Bavella's canyons may now be entered
         <b>only with a professional guide</b>.</p>
     </div>
 
     <div class="venue-grid">
 
-      <article class="venue reveal" id="v-purcaraccia">
-        <div class="plate" data-scene="pools"></div>
-        <div class="top" data-i18n="v1.top"><div><span class="kind">Canyoning · aquatic</span><h3>Purcaraccia Canyon</h3></div><span class="score">◆◆◆</span></div>
-        <div class="body" data-i18n="v1.body"><p>The famous one: natural granite waterslides and turquoise plunge pools stepping down the mountainside. Slides, jumps and abseils in warm summer water — pure adrenaline with a helmet on.</p></div>
-        <dl class="stats" data-i18n="v1.stats">
-          <div><dt>Min age</dt><dd>~12 yrs</dd></div>
-          <div><dt>Must</dt><dd>swim confidently</dd></div>
-          <div><dt>Duration</dt><dd>≈ half day</dd></div>
-          <div><dt>Access</dt><dd class="warn">guide required</dd></div>
-        </dl>
-      </article>
-
-      <article class="venue reveal" id="v-pulischellu">
+      <article class="venue reveal" id="v-zonza">
         <div class="plate" data-scene="canyon"></div>
-        <div class="top" data-i18n="v2.top"><div><span class="kind">Canyoning · gentle intro</span><h3>Pulischellu Canyon</h3></div><span class="score">◆◆</span></div>
-        <div class="body" data-i18n="v2.body"><p>Bavella's friendly starter canyon — playful pools and small slides in a green gorge. If younger cousins or nervous first-timers join, this is the confidence-builder before Purcaraccia.</p></div>
-        <dl class="stats" data-i18n="v2.stats">
-          <div><dt>Min age</dt><dd>~7 yrs</dd></div>
-          <div><dt>Level</dt><dd>discovery</dd></div>
-          <div><dt>Duration</dt><dd>≈ 2–3 h</dd></div>
-          <div><dt>Access</dt><dd class="warn">guide required</dd></div>
-        </dl>
-      </article>
-
-      <article class="venue reveal" id="v-ferrata">
-        <div class="plate" data-scene="cliff"></div>
-        <div class="top" data-i18n="v3.top"><div><span class="kind">Via ferrata · vertical</span><h3>U Calanconi · Chisà</h3></div><span class="score">◆◆◆</span></div>
-        <div class="body" data-i18n="v3.body"><p>A cabled cliff-route with ladders, a monkey-bridge and big air under your heels — clipped in the whole way. Serious fun for a sporty teen with a head for heights and long-enough arms.</p></div>
-        <dl class="stats" data-i18n="v3.stats">
-          <div><dt>Min age</dt><dd>12 yrs</dd></div>
-          <div><dt>Reach</dt><dd class="warn">≥ 1.70 m up</dd></div>
-          <div><dt>Duration</dt><dd>3.5–4 h</dd></div>
-          <div><dt>Season</dt><dd>Jun–Sep daily</dd></div>
-        </dl>
-      </article>
-
-      <article class="venue reveal" id="v-piscia">
-        <div class="plate" data-scene="waterfall"></div>
-        <div class="top" data-i18n="v4.top"><div><span class="kind">Hike · forest waterfall</span><h3>Piscia di Gallu</h3></div><span class="score">◆◆</span></div>
-        <div class="body" data-i18n="v4.body"><p>Through the Ospedale laricio forest to a ~60 m waterfall plunging off a granite wall, past the balancing “Sentinelle” boulder. Easy most of the way — the final roped descent to the base is steep and not for small children.</p></div>
-        <dl class="stats" data-i18n="v4.stats">
-          <div><dt>Distance</dt><dd>≈ 4.6 km</dd></div>
-          <div><dt>Time</dt><dd>≈ 2 h 15</dd></div>
-          <div><dt>Ascent</dt><dd>≈ 200 m</dd></div>
-          <div><dt>Tip</dt><dd>go early</dd></div>
+        <div class="top" data-i18n="z.top"><div><span class="kind">Around camp · village &amp; water</span><h3>Zonza &amp; its river pool</h3></div><span class="score">◆</span></div>
+        <div class="body" data-i18n="z.body"><p>No car needed. The campsite is 200 m from Zonza, with restaurants and a bakery in the village, and a natural river pool about 25 minutes' walk away — cold, clear mountain water, darting dragonflies and, under the stream stones, maybe a brook salamander. A perfect low-effort first afternoon while you acclimatise.</p></div>
+        <div class="access" data-i18n="z.access"><span class="badge walk">🚶 On foot from camp</span><span class="amen">Village 3 min · river pool ~25 min · snack bar at the campsite</span></div>
+        <dl class="stats" data-i18n="z.stats">
+          <div><dt>From camp</dt><dd>on foot</dd></div>
+          <div><dt>Village</dt><dd>~3 min</dd></div>
+          <div><dt>River pool</dt><dd>~25 min walk</dd></div>
+          <div><dt>Good for</dt><dd>a hot afternoon</dd></div>
         </dl>
       </article>
 
@@ -1057,6 +1029,7 @@
         <div class="plate" data-scene="arch"></div>
         <div class="top" data-i18n="v5.top"><div><span class="kind">Hike · viewpoint</span><h3>Trou de la Bombe</h3></div><span class="score">◆◆</span></div>
         <div class="body" data-i18n="v5.body"><p>A red-marked hour from the Col de Bavella to a giant wind-drilled hole clean through the rock (<em>U Cumpuleddu</em>). Prime ground to scan the aiguilles for mouflon, golden eagle and bearded vulture.</p></div>
+        <div class="access" data-i18n="v5.access"><span class="badge near">🚗 ~15–20 min · 9 km</span><span class="amen">Big car park, Auberge du Col &amp; café at the Col de Bavella</span></div>
         <dl class="stats" data-i18n="v5.stats">
           <div><dt>From</dt><dd>Col 1218 m</dd></div>
           <div><dt>Time</dt><dd>≈ 1 h each way</dd></div>
@@ -1069,6 +1042,7 @@
         <div class="plate" data-scene="meadow"></div>
         <div class="top" data-i18n="v6.top"><div><span class="kind">Wildlife · conservation</span><h3>Quenza Deer Enclosure</h3></div><span class="score">◆◆</span></div>
         <div class="body" data-i18n="v6.body"><p>The very enclosure where the Corsican red deer was pulled back from extinction from 1985. A short, low-effort visit with a genuine conservation story behind it — pair it with the “footsteps of the deer” walk.</p></div>
+        <div class="access" data-i18n="v6.access"><span class="badge near">🚗 ~10 min · ~5 km</span><span class="amen">Neighbouring village · park in Quenza, cafés on the square</span></div>
         <dl class="stats" data-i18n="v6.stats">
           <div><dt>Near</dt><dd>Quenza village</dd></div>
           <div><dt>Effort</dt><dd>easy</dd></div>
@@ -1077,15 +1051,68 @@
         </dl>
       </article>
 
+      <article class="venue reveal" id="v-piscia">
+        <div class="plate" data-scene="waterfall"></div>
+        <div class="top" data-i18n="v4.top"><div><span class="kind">Hike · forest waterfall</span><h3>Piscia di Gallu</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v4.body"><p>Through the Ospedale laricio forest to a ~60 m waterfall plunging off a granite wall, past the balancing “Sentinelle” boulder. Easy most of the way — the final roped descent to the base is steep and not for small children.</p></div>
+        <div class="access" data-i18n="v4.access"><span class="badge near">🚗 ~30 min · ~17 km</span><span class="amen">Paid parking, restaurant, snack bar &amp; toilets at the trailhead</span></div>
+        <dl class="stats" data-i18n="v4.stats">
+          <div><dt>Trail</dt><dd>≈ 4.6 km</dd></div>
+          <div><dt>Time</dt><dd>≈ 2 h 15</dd></div>
+          <div><dt>Ascent</dt><dd>≈ 200 m</dd></div>
+          <div><dt>Tip</dt><dd>go early</dd></div>
+        </dl>
+      </article>
+
       <article class="venue reveal" id="v-museum">
         <div class="plate" data-scene="relic"></div>
         <div class="top" data-i18n="v7.top"><div><span class="kind">Museum · deep time</span><h3>Musée de l'Alta Rocca</h3></div><span class="score">◆◆</span></div>
         <div class="body" data-i18n="v7.body"><p>In Levie: 10,000 years of Corsica in one room — the extinct Prolagus skeleton and the Dame de Bonifacio, the island's oldest human. A cool, rainy-day brain-feast between adventures.</p></div>
+        <div class="access" data-i18n="v7.access"><span class="badge near">🚗 ~15 min · ~10 km</span><span class="amen">In Levie village · cafés, shops and parking nearby</span></div>
         <dl class="stats" data-i18n="v7.stats">
           <div><dt>Open</dt><dd>Jun–Sep daily*</dd></div>
           <div><dt>Entry</dt><dd>≈ €4</dd></div>
           <div><dt>Under 10</dt><dd>free</dd></div>
           <div><dt>*</dt><dd>not Sun/hols</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-pulischellu">
+        <div class="plate" data-scene="canyon"></div>
+        <div class="top" data-i18n="v2.top"><div><span class="kind">Canyoning · gentle intro</span><h3>Pulischellu Canyon</h3></div><span class="score">◆◆</span></div>
+        <div class="body" data-i18n="v2.body"><p>Bavella's friendly starter canyon — playful pools and small slides in a green gorge. If younger cousins or nervous first-timers join, this is the confidence-builder before Purcaraccia.</p></div>
+        <div class="access" data-i18n="v2.access"><span class="badge far">🚗 ~40 min · via the Bavella road</span><span class="amen">Paid parking at the Pulischellu bridge · your guide meets you there</span></div>
+        <dl class="stats" data-i18n="v2.stats">
+          <div><dt>Min age</dt><dd>~7 yrs</dd></div>
+          <div><dt>Level</dt><dd>discovery</dd></div>
+          <div><dt>Duration</dt><dd>≈ 2–3 h</dd></div>
+          <div><dt>Access</dt><dd class="warn">guide required</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-purcaraccia">
+        <div class="plate" data-scene="pools"></div>
+        <div class="top" data-i18n="v1.top"><div><span class="kind">Canyoning · aquatic</span><h3>Purcaraccia Canyon</h3></div><span class="score">◆◆◆</span></div>
+        <div class="body" data-i18n="v1.body"><p>The famous one: natural granite waterslides and turquoise plunge pools stepping down the mountainside. Slides, jumps and abseils in warm summer water — pure adrenaline with a helmet on.</p></div>
+        <div class="access" data-i18n="v1.access"><span class="badge far">🚗 ~40 min + 45 min walk in</span><span class="amen">Paid parking at Col de Larone · no facilities on the trail</span></div>
+        <dl class="stats" data-i18n="v1.stats">
+          <div><dt>Min age</dt><dd>~12 yrs</dd></div>
+          <div><dt>Must</dt><dd>swim confidently</dd></div>
+          <div><dt>Duration</dt><dd>≈ half day</dd></div>
+          <div><dt>Access</dt><dd class="warn">guide required</dd></div>
+        </dl>
+      </article>
+
+      <article class="venue reveal" id="v-ferrata">
+        <div class="plate" data-scene="cliff"></div>
+        <div class="top" data-i18n="v3.top"><div><span class="kind">Via ferrata · vertical</span><h3>U Calanconi · Chisà</h3></div><span class="score">◆◆◆</span></div>
+        <div class="body" data-i18n="v3.body"><p>A cabled cliff-route with ladders, a monkey-bridge and big air under your heels — clipped in the whole way. Serious fun for a sporty teen with a head for heights and long-enough arms.</p></div>
+        <div class="access" data-i18n="v3.access"><span class="badge far">🚗 ~1 h+ · a full day out</span><span class="amen">Gear &amp; guide at the Chisà guesthouse · far NE of camp, near Solenzara</span></div>
+        <dl class="stats" data-i18n="v3.stats">
+          <div><dt>Min age</dt><dd>12 yrs</dd></div>
+          <div><dt>Reach</dt><dd class="warn">≥ 1.70 m up</dd></div>
+          <div><dt>Duration</dt><dd>3.5–4 h</dd></div>
+          <div><dt>Season</dt><dd>Jun–Sep daily</dd></div>
         </dl>
       </article>
 
@@ -1270,8 +1297,8 @@
 
     <div class="rhythm">
       <div class="day reveal">
-        <div class="when"><span class="d">01</span><span class="base-tag" data-i18n="d1.tag">Bavella · 1218 m</span></div>
-        <div class="what"><h3 data-i18n="d1.h3">Arrive &amp; look up</h3><p data-i18n="d1.p">Settle at camp, walk to the Trou de la Bombe for the hour that teaches you the skyline. First mouflon-and-eagle scan of the trip.</p><p class="alt" data-i18n="d1.alt">△ high &amp; dry · easy legs</p></div>
+        <div class="when"><span class="d">01</span><span class="base-tag" data-i18n="d1.tag">Zonza · 780 m</span></div>
+        <div class="what"><h3 data-i18n="d1.h3">Arrive &amp; settle in</h3><p data-i18n="d1.p">Drop the bags and let the mountains sink in. Wander Zonza and walk down to the river pool to cool off — dragonflies, cold clear water, maybe a brook salamander under the stones. An easy first afternoon to acclimatise before the big drives.</p><p class="alt" data-i18n="d1.alt">△ on foot · easy legs</p></div>
       </div>
       <div class="day reveal">
         <div class="when"><span class="d">02</span><span class="base-tag" data-i18n="d2.tag">Ospedale forest</span></div>
@@ -1644,7 +1671,7 @@
   var cur = null, lastPin = null;
 
   var MAP_CS = {
-    "Bavella Vista Camp|mtn":{kind:"★ Základna · dny 1–5",blurb:"Vaše horské zázemí na pět dní, přímo pod žulovými jehlami. Vše z horské části tohoto průvodce je odsud kousek autem.",stat:"Nadm. výška ≈ 1000 m · Col de Bavella"},
+    "Bavella Vista Camp|mtn":{kind:"★ Základna · dny 1–5",blurb:"Váš domov na pět dní, ve vesnici Zonza v Alta Rocce. Aiguilles de Bavella jsou asi 9 km po silnici — pár věcí pěšky, zbytek kousek autem.",stat:"Nadm. výška ≈ 780 m · Zonza · Alta Rocca"},
     "Porto-Vecchio Apartment|sea":{kind:"★ Základna · pobřeží",blurb:"Vaše přímořské zázemí pro druhou půlku — pár minut od velkých pláží a přístavních lodí do rezervace.",stat:"Nadm. výška ≈ 40 m · záliv Porto-Vecchio"},
     "U Calanconi · Chisà|mtn":{kind:"Via ferrata · vertikála",blurb:"Zajištěná cesta po skalní stěně s žebříky a lanovou lávkou, celou dobu na jištění — pořádná zábava pro sportovního teenagera bez závratí.",stat:"Min. věk 12 · dosah ≥ 1,70 m · 3,5–4 h"},
     "Trou de la Bombe|mtn":{kind:"Túra · vyhlídka",blurb:"Hodina od Col de Bavella k obří díře provrtané větrem skrz skálu — ideální místo pro pozorování muflonů a orlů skalních.",stat:"Od 1218 m · ~1 h tam"},
@@ -1721,8 +1748,8 @@
     "bases.eye":"Kde spíte, kde se toulá­te","bases.h2":"Dva tábory, dva světy",
     "bases.p":"Cesta má přirozenou páteř. Nejdřív vysoký žulový amfiteátr Bavelly, kde vzduch voní pryskyřicí a skála se za soumraku mění v měď. Pak moře, kde tentýž ostrov ukazuje svou druhou tvář — louky posidonie, bílé ostrůvky a ryby, kterým můžete pohlédnout do očí.",
     "b1.phase":"Dny 1–5 · Výšiny",
-    "b1.p":"Vaše základna leží pod <em>Aiguilles de Bavella</em> — sedmi žulovými věžemi, kterým místní říkají <em>Cinque Frati</em> a jejich sestry. Ráno vás vzbudí sokoli kroužící kolem věží; od stanu vykročíte rovnou na GR20 a červeně značené stezky. Celá horská část tohoto průvodce je kousek autem.",
-    "b1.feats":"<li>◈ Aiguilles &amp; GR20</li><li>◈ Laricijský bor</li><li>◈ Kaňony &amp; via ferrata</li><li>◈ Chladné horské noci</li>",
+    "b1.p":"Vaše základna je v <em>Zonze</em>, žulové vesnici v Alta Rocce — 200 m od návsi, s občerstvením přímo v kempu a obchody i restauracemi kousek pěšky. <em>Aiguilles de Bavella</em> se tyčí asi 9 km po silnici; přírodní říční tůň je na dosah pěšky a každé horské dobrodružství je od stanu kousek nádhernou cestou autem.",
+    "b1.feats":"<li>◈ Vesnice Zonza · 3 min</li><li>◈ Říční tůň pěšky</li><li>◈ Aiguilles · 15 min autem</li><li>◈ Občerstvení &amp; obchody</li>",
     "b2.phase":"Poté · Pobřeží",
     "b2.p":"Z průsmyků dolů do „Města soli“. Odtud jsou velké pláže <em>Palombaggia</em> a <em>Santa Giulia</em> pár minut a z přístavu vyplouvají lodě do <em>Přírodní rezervace Bouches de Bonifacio</em> — jedné z nejbohatších mořských svatyní Středomoří.",
     "b2.feats":"<li>◈ Souostroví Lavezzi</li><li>◈ Šnorchlování &amp; kanici</li><li>◈ Louky posidonie</li><li>◈ Teplé mělké zátoky</li>",
@@ -1817,8 +1844,8 @@
     "c8.p":"Fialové ježovky, poustevníčci, slizouni a hvězdice sdílejí prosluněné mělčiny — celé město pod 30 cm vody, když se dost zpomalíte, abyste ho viděli.",
     "c8.spot":"<b>KDE HLEDAT ·</b> skalní mělčiny za klidného dne. Pozor na ostny ježovek — dívej se, nesahej.",
 
-    "mt.eye":"Ze základny Bavella · dny 1–5","mt.h2":"Žulové hřiště",
-    "mt.p":"Pro třináctiletého, který žije sportem, je tohle to pravé: teplá skála, studená voda, expozice s lanem. Věkové hranice a ceny níže jsou orientační pro rok 2026 — vždy si je potvrďte s průvodcovskou firmou a pamatujte, že do bavellských kaňonů se teď smí <b>jen s profesionálním průvodcem</b>.",
+    "mt.eye":"Se základnou v Zonze · dny 1–5","mt.h2":"Žulové hřiště",
+    "mt.p":"Bydlíte ve vesnici Zonza, takže pár věcí je pěšky a velké cíle jsou kousek nádhernou cestou po bavellské silnici. Každá karta ukazuje <b>vzdálenost od kempu</b> a co na místě najdete — karty jsou řazené od nejbližších. Věk a ceny jsou orientační pro rok 2026; vždy si je potvrďte s průvodcem a pamatujte, že do bavellských kaňonů se teď smí <b>jen s profesionálním průvodcem</b>.",
 
     "v1.top":"<div><span class=\"kind\">Kaňoning · vodní</span><h3>Kaňon Purcaraccia</h3></div><span class=\"score\">◆◆◆</span>",
     "v1.body":"<p>Ten slavný: přírodní žulové skluzavky a tyrkysové tůně klesající po úbočí. Skluzy, skoky a slaňování v teplé letní vodě — čirý adrenalin s přilbou na hlavě.</p>",
@@ -1834,7 +1861,18 @@
 
     "v4.top":"<div><span class=\"kind\">Túra · vodopád v lese</span><h3>Piscia di Gallu</h3></div><span class=\"score\">◆◆</span>",
     "v4.body":"<p>Laricijským borem Ospedale k ~60m vodopádu padajícímu ze žulové stěny, kolem balancujícího balvanu „Sentinelle“. Většinu cesty snadné — závěrečný jištěný sestup k úpatí je strmý a ne pro malé děti.</p>",
-    "v4.stats":"<div><dt>Vzdálenost</dt><dd>≈ 4,6 km</dd></div><div><dt>Čas</dt><dd>≈ 2 h 15</dd></div><div><dt>Převýšení</dt><dd>≈ 200 m</dd></div><div><dt>Tip</dt><dd>vyrazte brzy</dd></div>",
+    "v4.stats":"<div><dt>Trasa</dt><dd>≈ 4,6 km</dd></div><div><dt>Čas</dt><dd>≈ 2 h 15</dd></div><div><dt>Převýšení</dt><dd>≈ 200 m</dd></div><div><dt>Tip</dt><dd>vyrazte brzy</dd></div>",
+    "z.top":"<div><span class=\"kind\">U kempu · vesnice &amp; voda</span><h3>Zonza &amp; říční tůň</h3></div><span class=\"score\">◆</span>",
+    "z.body":"<p>Auto netřeba. Kemp je 200 m od Zonzy, ve vesnici jsou restaurace i pekárna a asi 25 minut pěšky je přírodní říční tůň — studená čirá horská voda, poletující vážky a pod kameny v potoce možná i čolek korsický. Ideální nenáročné první odpoledne na aklimatizaci.</p>",
+    "z.access":"<span class=\"badge walk\">🚶 Pěšky z kempu</span><span class=\"amen\">Vesnice 3 min · říční tůň ~25 min · občerstvení v kempu</span>",
+    "z.stats":"<div><dt>Z kempu</dt><dd>pěšky</dd></div><div><dt>Vesnice</dt><dd>~3 min</dd></div><div><dt>Říční tůň</dt><dd>~25 min pěšky</dd></div><div><dt>Vhodné na</dt><dd>horké odpoledne</dd></div>",
+    "v5.access":"<span class=\"badge near\">🚗 ~15–20 min · 9 km</span><span class=\"amen\">Velké parkoviště, Auberge du Col &amp; kavárna na Col de Bavella</span>",
+    "v6.access":"<span class=\"badge near\">🚗 ~10 min · ~5 km</span><span class=\"amen\">Sousední vesnice · parkování v Quenze, kavárny na návsi</span>",
+    "v4.access":"<span class=\"badge near\">🚗 ~30 min · ~17 km</span><span class=\"amen\">Placené parkoviště, restaurace, občerstvení &amp; toalety u startu</span>",
+    "v7.access":"<span class=\"badge near\">🚗 ~15 min · ~10 km</span><span class=\"amen\">Ve vesnici Levie · kavárny, obchody a parkování poblíž</span>",
+    "v2.access":"<span class=\"badge far\">🚗 ~40 min · po bavellské silnici</span><span class=\"amen\">Placené parkoviště u mostu Pulischellu · průvodce vás potká na místě</span>",
+    "v1.access":"<span class=\"badge far\">🚗 ~40 min + 45 min pěšky</span><span class=\"amen\">Placené parkoviště na Col de Larone · na trase žádné zázemí</span>",
+    "v3.access":"<span class=\"badge far\">🚗 ~1 h+ · celodenní výlet</span><span class=\"amen\">Vybavení &amp; průvodce v penzionu Chisà · daleko na SV od kempu, u Solenzary</span>",
 
     "v5.top":"<div><span class=\"kind\">Túra · vyhlídka</span><h3>Trou de la Bombe</h3></div><span class=\"score\">◆◆</span>",
     "v5.body":"<p>Červeně značená hodina od Col de Bavella k obří díře provrtané větrem skrz skálu (<em>U Cumpuleddu</em>). Ideální místo, kde prohlížet jehly a hledat muflony, orly skalní i orlosupy.</p>",
@@ -1899,7 +1937,7 @@
 
     "rh.eye":"Návrh tvaru, ne rozvrh","rh.h2":"Rytmus devíti dní",
     "rh.p":"Horám i moři vládne počasí, tak to berte volně. Logika: aklimatizovat se, velký kaňoning a den na lodi si nechat na dobré podmínky a nechat sestup od žuly k vodě, ať vypráví vlastní příběh.",
-    "d1.tag":"Bavella · 1218 m","d1.h3":"Přijet &amp; vzhlédnout","d1.p":"Zabydlete se v táboře, dojděte k Trou de la Bombe na hodinu, která vás naučí panorama. První pátrání po muflonech a orlech.","d1.alt":"△ vysoko &amp; sucho · lehké nohy",
+    "d1.tag":"Zonza · 780 m","d1.h3":"Přijet &amp; zabydlet se","d1.p":"Složte batohy a nechte hory doznít. Projděte Zonzu a sejděte k říční tůni se zchladit — vážky, studená čirá voda, pod kameny možná čolek korsický. Nenáročné první odpoledne na aklimatizaci před velkými výlety.","d1.alt":"△ pěšky · lehké nohy",
     "d2.tag":"Les Ospedale","d2.h3":"Piscia di Gallu &amp; borovice","d2.p":"Brzy ráno k vodopádu starým laricijem — chladivý stín, teritorium brhlíka. Odpoledne: zapsat druhy 1 a 5.","d2.alt":"△ lesní túra · vyrazte brzy",
     "d3.tag":"Kaňony Bavelly","d3.h3":"Velký den dobrodružství","d3.p":"Purcaraccia (nebo Pulischellu) s průvodcem — skluzy, tůně, skoky. Nechte na nejteplejší a nejjasnější předpověď.","d3.alt":"△ vodní · rezervujte předem",
     "d4.tag":"Chisà · Quenza · Levie","d4.h3":"Vertikála &amp; hluboký čas","d4.p":"Via ferrata U Calanconi pro hledače vzrušení; nebo obora s jeleny a muzeum v Levie na mírnější den plný příběhů. Zapsat druhy 2 a 7.","d4.alt":"△ smíšené · flexibilní",
